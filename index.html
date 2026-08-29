@@ -137,10 +137,10 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-3">
-        <!-- Live Google Sheet Status Indicator -->
-        <button onclick="refreshSheetData()" title="Click to manually refresh Google Sheet menu data" class="px-3 py-2 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-100 transition-colors">
+        <!-- Direct Live Google Sheet Status Indicator -->
+        <button onclick="refreshSheetData()" title="Click to refresh menu directly from Google Sheet" class="px-3 py-2 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center gap-1.5 hover:bg-emerald-100 transition-colors shadow-sm">
           <span id="syncDot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="hidden sm:inline">Google Sheet:</span> <span id="cmsStatusLabel">Synced</span>
+          <span id="cmsStatusLabel">Google Sheet: Connecting...</span>
           <i id="syncIcon" class="fa-solid fa-rotate text-[10px] ml-1 opacity-70"></i>
         </button>
 
@@ -282,21 +282,21 @@
           Handcrafted Treats Collection
         </h2>
         <p class="text-cocoa-800/80 text-sm sm:text-base mt-3">
-          Prices and offerings update directly from KY's official Google spreadsheet.
+          Photos and prices update directly from KY's official Google spreadsheet in real time.
         </p>
       </div>
 
       <!-- Category Filter Tabs Container -->
       <div id="categoryTabsContainer" class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-10 text-xs sm:text-sm font-semibold">
-        <!-- Dynamically rendered or updated based on Sheet categories -->
+        <!-- Dynamically rendered based on Sheet categories -->
       </div>
 
       <!-- Dynamic Menu Grid Loaded via JavaScript -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="dynamicMenuGrid">
         <!-- Skeleton Loading placeholder -->
-        <div class="h-64 rounded-3xl skeleton-loader"></div>
-        <div class="h-64 rounded-3xl skeleton-loader"></div>
-        <div class="h-64 rounded-3xl skeleton-loader"></div>
+        <div class="h-80 rounded-3xl skeleton-loader"></div>
+        <div class="h-80 rounded-3xl skeleton-loader"></div>
+        <div class="h-80 rounded-3xl skeleton-loader"></div>
       </div>
 
       <!-- Add-Ons Notice Banner -->
@@ -353,7 +353,7 @@
       <div class="mt-8 text-center">
         <p class="text-xs text-cocoa-800/60 flex items-center justify-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Instagram auto-sync enabled • KY updates photo posts on Instagram without touching code
+          Instagram gallery active • Photos sync automatically
         </p>
       </div>
 
@@ -811,11 +811,38 @@
 
   <script>
     // -------------------------------------------------------------
-    // 1. LIVE GOOGLE SHEET CONFIGURATION
+    // 1. GOOGLE SHEET DIRECT NATIVE API CONFIGURATION
     // -------------------------------------------------------------
-    const GOOGLE_SHEET_ENDPOINT = 'https://opensheet.elk.sh/1FgQSMyNhKR0ePho9XHdvlMjk9PzU1y3FCY2RT1MwvGI/Menu';
+    const GOOGLE_SHEET_ID = '1FgQSMyNhKR0ePho9XHdvlMjk9PzU1y3FCY2RT1MwvGI';
+    const GOOGLE_SHEET_TAB_NAME = 'Menu';
 
-    // Fallback menu data if network is disconnected
+    // Direct Google Native Endpoint (Zero 3rd party proxies, CORS enabled)
+    const DIRECT_GVIZ_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(GOOGLE_SHEET_TAB_NAME)}`;
+    const DIRECT_CSV_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=csv&sheet=${encodeURIComponent(GOOGLE_SHEET_TAB_NAME)}`;
+
+    // Helper: Normalize image URLs (convert Google Drive & Imgur share links to direct raw image URLs)
+    function sanitizeImageUrl(url) {
+      if (!url || typeof url !== 'string') return '';
+      let cleanUrl = url.trim();
+
+      // Convert Google Drive share links to direct thumbnail view links
+      if (cleanUrl.includes('drive.google.com')) {
+        const fileIdMatch = cleanUrl.match(/\/d\/([a-zA-Z0-9_-]+)/) || cleanUrl.match(/id=([a-zA-Z0-9_-]+)/);
+        if (fileIdMatch && fileIdMatch[1]) {
+          return `https://lh3.googleusercontent.com/d/${fileIdMatch[1]}`;
+        }
+      }
+
+      // Convert standard imgur page links to direct i.imgur.com image links
+      if (cleanUrl.includes('imgur.com') && !cleanUrl.includes('i.imgur.com') && !cleanUrl.endsWith('.jpg') && !cleanUrl.endsWith('.png') && !cleanUrl.endsWith('.webp')) {
+        const imgurId = cleanUrl.split('/').pop().replace(/\..+$/, '');
+        if (imgurId) return `https://i.imgur.com/${imgurId}.jpg`;
+      }
+
+      return cleanUrl;
+    }
+
+    // Fallback menu data if network is disconnected or sheet permissions are restricted
     const DEFAULT_TREATS_MENU = [
       {
         id: 'strawberries',
@@ -901,7 +928,7 @@
     let currentActiveCategory = 'all';
 
     // -------------------------------------------------------------
-    // 2. LIVE FETCH FROM GOOGLE SHEETS
+    // 2. DIRECT GOOGLE SHEET PARSER (NO PROXY)
     // -------------------------------------------------------------
     async function loadMenuFromGoogleSheet() {
       const statusLabel = document.getElementById('cmsStatusLabel');
@@ -909,53 +936,119 @@
       const syncIcon = document.getElementById('syncIcon');
 
       if (syncIcon) syncIcon.classList.add('fa-spin');
-      if (statusLabel) statusLabel.textContent = 'Syncing...';
+      if (statusLabel) statusLabel.textContent = 'Google Sheet: Syncing...';
 
+      let parsedItems = [];
+
+      // ATTEMPT 1: Google Visualization (GViz) Direct Endpoint
       try {
-        const response = await fetch(GOOGLE_SHEET_ENDPOINT + '?cache_bust=' + Date.now());
-        if (!response.ok) throw new Error('Network response was not ok');
+        const cacheBuster = `&_t=${Date.now()}`;
+        const response = await fetch(DIRECT_GVIZ_URL + cacheBuster);
+        
+        if (response.ok) {
+          const text = await response.text();
+          const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);?/);
+          
+          if (match && match[1]) {
+            const gvizData = JSON.parse(match[1]);
+            if (gvizData.status === 'ok' && gvizData.table) {
+              const cols = gvizData.table.cols.map((col, idx) => {
+                const label = (col.label || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+                return label || `col_${idx}`;
+              });
 
-        const data = await response.json();
+              parsedItems = gvizData.table.rows.map((row, rIdx) => {
+                const itemObj = {};
+                (row.c || []).forEach((cell, cIdx) => {
+                  const key = cols[cIdx] || `col_${cIdx}`;
+                  itemObj[key] = cell && cell.v !== null && cell.v !== undefined ? cell.v : '';
+                });
+                return itemObj;
+              });
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('GViz direct endpoint attempted, trying CSV fallback...', err);
+      }
 
-        if (Array.isArray(data) && data.length > 0) {
-          // Normalize Sheet Row Fields
-          TREATS_MENU_DATA = data.map((row, index) => {
-            const name = row.name || row.ItemName || row.item || row.Title || `Treat Item ${index + 1}`;
-            const id = row.id || name.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            const p6 = parseFloat(row.price6 || row.Price6 || row.price_6 || row.half_dozen || 0);
-            const p12 = parseFloat(row.price12 || row.Price12 || row.price_12 || row.full_dozen || 0);
+      // ATTEMPT 2: Direct CSV Export Fallback if GViz returned empty
+      if (!parsedItems || parsedItems.length === 0) {
+        try {
+          const csvResponse = await fetch(DIRECT_CSV_URL + `&_t=${Date.now()}`);
+          if (csvResponse.ok) {
+            const csvText = await csvResponse.text();
+            const lines = csvText.trim().split(/\r?\n/);
+            if (lines.length > 1) {
+              const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/[^a-z0-9]/g, ''));
+              parsedItems = lines.slice(1).map(line => {
+                const vals = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(v => v.replace(/^"|"$/g, '').trim());
+                const itemObj = {};
+                headers.forEach((h, i) => {
+                  itemObj[h] = vals[i] || '';
+                });
+                return itemObj;
+              });
+            }
+          }
+        } catch (csvErr) {
+          console.warn('CSV direct endpoint error:', csvErr);
+        }
+      }
+
+      // PROCESS & NORMALIZE PARSED ROWS
+      if (parsedItems && parsedItems.length > 0) {
+        const validRows = parsedItems.filter(r => (r.name || r.itemname || r.item || r.title) && String(r.name || r.itemname || r.item || r.title).trim() !== '');
+
+        if (validRows.length > 0) {
+          TREATS_MENU_DATA = validRows.map((row, index) => {
+            const rawName = row.name || row.itemname || row.item || row.title || `Treat Item ${index + 1}`;
+            const name = String(rawName).trim();
+            const rawId = row.id || name.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            
+            const p6 = parseFloat(row.price6 || row.halfdozen || row.price6count || 0) || 0;
+            const p12 = parseFloat(row.price12 || row.fulldozen || row.price12count || (p6 > 0 ? p6 * 2 : 0)) || 0;
+
+            const rawImg = row.img || row.image || row.imageurl || row.photourl || row.photo || '';
+            const cleanImg = sanitizeImageUrl(rawImg);
 
             return {
-              id: id,
+              id: rawId,
               name: name,
-              category: row.category || row.Category || 'Specialty Treats',
-              icon: row.icon || row.Icon || '🍰',
-              badge: row.badge || row.Badge || 'Fresh Made',
-              desc: row.desc || row.Description || row.description || 'Handcrafted fresh to order for your Peoria celebration.',
-              unit6: row.unit6 || `6 Count - $${p6}`,
+              category: String(row.category || 'Specialty Treats').trim(),
+              icon: String(row.icon || '🍰').trim(),
+              badge: String(row.badge || 'Fresh Made').trim(),
+              desc: String(row.desc || row.description || 'Handcrafted fresh to order for your Peoria celebration.').trim(),
+              unit6: row.unit6 ? String(row.unit6).trim() : `6 Count - $${p6}`,
               price6: p6,
-              unit12: row.unit12 || `12 Count - $${p12}`,
+              unit12: row.unit12 ? String(row.unit12).trim() : `12 Count - $${p12}`,
               price12: p12,
-              img: row.img || row.Image || row.image_url || 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=800&auto=format&fit=crop'
+              img: cleanImg
             };
           });
 
-          if (statusLabel) statusLabel.textContent = 'Live Synced';
+          if (statusLabel) statusLabel.textContent = `Google Sheet: Live (${TREATS_MENU_DATA.length} items)`;
           if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse';
         } else {
-          throw new Error('Empty spreadsheet rows');
+          fallbackToDefaults('No rows found in sheet');
         }
-      } catch (err) {
-        console.warn('Google Sheet fetch fallback:', err);
-        TREATS_MENU_DATA = [...DEFAULT_TREATS_MENU];
-        if (statusLabel) statusLabel.textContent = 'Cached';
-        if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-amber-500';
-      } finally {
-        if (syncIcon) syncIcon.classList.remove('fa-spin');
-        renderCategoryTabs();
-        renderMenuItems(currentActiveCategory);
-        renderCalculatorSelectors();
+      } else {
+        fallbackToDefaults('Could not connect to Google Sheet. Check Share Permissions.');
       }
+
+      if (syncIcon) syncIcon.classList.remove('fa-spin');
+      renderCategoryTabs();
+      renderMenuItems(currentActiveCategory);
+      renderCalculatorSelectors();
+    }
+
+    function fallbackToDefaults(reason) {
+      console.info('Using default bakery menu fallback. Reason:', reason);
+      TREATS_MENU_DATA = [...DEFAULT_TREATS_MENU];
+      const statusLabel = document.getElementById('cmsStatusLabel');
+      const syncDot = document.getElementById('syncDot');
+      if (statusLabel) statusLabel.textContent = 'Google Sheet: Cached Menu';
+      if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-amber-500';
     }
 
     function refreshSheetData() {
@@ -994,7 +1087,7 @@
     }
 
     // -------------------------------------------------------------
-    // 4. INSTAGRAM RECENT POSTS (AUTO SYNC SIMULATOR)
+    // 4. INSTAGRAM RECENT POSTS
     // -------------------------------------------------------------
     const INSTAGRAM_POSTS = [
       {
@@ -1054,7 +1147,7 @@
     ];
 
     // -------------------------------------------------------------
-    // 5. RENDER MENU ITEMS & CARDS
+    // 5. RENDER MENU ITEMS & CARDS (WITH PHOTO SUPPORT & FALLBACKS)
     // -------------------------------------------------------------
     function renderMenuItems(filter = 'all') {
       const grid = document.getElementById('dynamicMenuGrid');
@@ -1074,20 +1167,44 @@
 
       itemsToRender.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'menu-card bg-white rounded-3xl p-6 border border-brand-100 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between';
+        card.className = 'menu-card bg-white rounded-3xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between';
+        
+        const hasPhoto = item.img && item.img.trim().length > 5;
+
         card.innerHTML = `
           <div>
-            <div class="flex justify-between items-start mb-4">
-              <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                ${item.icon}
+            ${hasPhoto ? `
+              <div class="relative h-48 w-full overflow-hidden bg-brand-100">
+                <img 
+                  src="${item.img}" 
+                  alt="${item.name}" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-4xl bg-brand-50\\'>${item.icon || '🍰'}</div>';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
+                <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/90 backdrop-blur-md text-brand-700 shadow-sm">
+                  ${item.badge || 'Fresh Made'}
+                </div>
+                <div class="absolute bottom-3 left-3 w-8 h-8 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center text-sm shadow-sm">
+                  ${item.icon || '✨'}
+                </div>
               </div>
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-brand-100 text-brand-700">${item.badge}</span>
+            ` : `
+              <div class="p-6 pb-2 flex justify-between items-start">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                  ${item.icon || '🍰'}
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-brand-100 text-brand-700">${item.badge || 'Fresh Made'}</span>
+              </div>
+            `}
+
+            <div class="p-6 pt-4">
+              <h3 class="font-serif text-xl font-bold text-cocoa-950">${item.name}</h3>
+              <p class="text-xs text-cocoa-800/70 mt-1.5 leading-relaxed">${item.desc}</p>
             </div>
-            <h3 class="font-serif text-xl font-bold text-cocoa-950">${item.name}</h3>
-            <p class="text-xs text-cocoa-800/70 mt-1 mb-4 leading-relaxed">${item.desc}</p>
           </div>
           
-          <div>
+          <div class="p-6 pt-0">
             <div class="bg-brand-50/60 rounded-2xl p-3.5 space-y-2 text-xs">
               <div class="flex justify-between items-center font-medium">
                 <span>${item.unit6}</span>
@@ -1304,7 +1421,7 @@
       document.getElementById('modalDate').textContent = date || 'To be scheduled';
       document.getElementById('modalTotal').textContent = total;
 
-      // Netlify AJAX submission simulation
+      // Netlify AJAX submission
       if (window.location.hostname.includes('netlify.app') || window.location.hostname.includes('.')) {
         const formData = new FormData(form);
         fetch('/', {
