@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Butterfly Bliss Bakery N' More | Custom Cakes, Party Packs & Gourmet Treats | Peoria, IL</title>
+  <title>Butterfly Bliss Bakery N' More | Custom Cakes, Wedding Packages & Gourmet Treats | Peoria, IL</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +68,7 @@
       font-family: 'Playfair Display', Georgia, serif;
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.7);
     }
@@ -95,10 +95,18 @@
     
     @keyframes gentleFlutter {
       0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.04) rotate(-1.5deg); }
+      50% { transform: scale(1.03) rotate(-1.5deg); }
     }
     .butterfly-flutter {
       animation: gentleFlutter 4s ease-in-out infinite;
+    }
+
+    @keyframes toastSlideUp {
+      from { transform: translate(-50%, 20px); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+    .toast-enter {
+      animation: toastSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
   </style>
 </head>
@@ -107,17 +115,17 @@
   <!-- Top Announcement Bar -->
   <div class="bg-gradient-to-r from-cocoa-950 via-cocoa-900 to-[#7D4FA8] text-amber-100 text-xs sm:text-sm py-2.5 px-4 text-center tracking-wide font-medium flex items-center justify-center gap-2 border-b border-white/10">
     <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#9E72C3] text-white animate-pulse">Now Booking</span>
-    <span>🦋 Custom Cakes, Party Packs, & Gourmet Treat Tables in Peoria, IL</span>
-    <a href="#booking" class="underline underline-offset-4 hover:text-white font-semibold ml-2 hidden sm:inline">Build Your Quote &rarr;</a>
+    <span>💍 Peoria, IL Custom Wedding Packages, Party Packs & Gourmet Treat Tables</span>
+    <a href="#wedding-packages" class="underline underline-offset-4 hover:text-white font-semibold ml-2 hidden sm:inline">Explore Weddings &rarr;</a>
   </div>
 
   <!-- Navigation Header -->
   <header class="sticky top-0 z-40 glass-card border-b border-brand-100 shadow-sm transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between gap-3">
       
       <!-- Custom Vector Logo Branding -->
       <a href="#" class="flex items-center gap-3 group py-1 shrink-0">
-        <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+        <div class="relative w-14 h-14 sm:w-18 sm:h-18 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-1 rounded-full bg-[#B892DC]/25 blur-lg group-hover:bg-[#9E72C3]/40 transition-colors pointer-events-none"></div>
 
           <!-- Custom SVG Butterfly matched to Logo -->
@@ -140,94 +148,74 @@
             <circle cx="52" cy="14" r="2.2" fill="#1A1110" />
             <circle cx="108" cy="14" r="2.2" fill="#1A1110" />
 
-            <!-- LEFT MAIN WINGS -->
+            <!-- Wings Outline -->
             <path d="M78 48 C68 26 38 20 15 28 C11 38 12 55 20 70 C24 78 31 83 38 88 C32 94 28 103 30 114 C33 124 45 128 58 124 C68 121 74 112 78 100 Z" fill="#17101C" />
-
-            <!-- RIGHT MAIN WINGS -->
             <path d="M82 48 C92 26 122 20 145 28 C149 38 148 55 140 70 C136 78 129 83 122 88 C128 94 132 103 130 114 C127 124 115 128 102 124 C92 121 86 112 82 100 Z" fill="#17101C" />
 
-            <!-- LEFT UPPER WING - Lavender Cells -->
+            <!-- Lavender Cells -->
             <g fill="url(#bfWingGrad)" stroke="#17101C" stroke-width="2.2" stroke-linejoin="round">
               <path d="M76 48 C66 32 44 28 24 33 C21 41 21 50 26 62 C34 60 49 56 62 55 C70 54 75 51 76 48 Z" />
               <path d="M28 66 C36 73 48 76 68 70 C65 62 52 61 38 62 C32 63 30 65 28 66 Z" />
               <path d="M38 78 C46 82 58 82 72 75 C70 69 58 70 46 72 C41 73 39 76 38 78 Z" />
-              <path d="M48 85 C56 87 66 84 74 80 C73 76 64 77 56 79 Z" />
-            </g>
-
-            <!-- LEFT LOWER WING - Lavender Cells -->
-            <g fill="url(#bfWingGrad)" stroke="#17101C" stroke-width="2.2" stroke-linejoin="round">
               <path d="M76 96 C70 106 63 115 54 117 C44 119 38 114 36 107 C38 98 46 92 56 90 C66 88 74 91 76 96 Z" />
               <path d="M52 118 C61 117 68 112 73 103 C70 100 62 101 54 104 C47 106 46 113 52 118 Z" />
-              <path d="M42 103 C46 107 53 108 61 106 C60 100 53 96 46 95 C41 95 40 99 42 103 Z" />
-            </g>
 
-            <!-- RIGHT UPPER WING - Lavender Cells -->
-            <g fill="url(#bfWingGrad)" stroke="#17101C" stroke-width="2.2" stroke-linejoin="round">
               <path d="M84 48 C94 32 116 28 136 33 C139 41 139 50 134 62 C126 60 111 56 98 55 C90 54 85 51 84 48 Z" />
               <path d="M132 66 C124 73 112 76 92 70 C95 62 108 61 122 62 C128 63 130 65 132 66 Z" />
               <path d="M122 78 C114 82 102 82 88 75 C90 69 102 70 114 72 C119 73 121 76 122 78 Z" />
-              <path d="M112 85 C104 87 94 84 86 80 C87 76 96 77 104 79 Z" />
-            </g>
-
-            <!-- RIGHT LOWER WING - Lavender Cells -->
-            <g fill="url(#bfWingGrad)" stroke="#17101C" stroke-width="2.2" stroke-linejoin="round">
               <path d="M84 96 C90 106 97 115 106 117 C116 119 122 114 124 107 C122 98 114 92 104 90 C94 88 86 91 84 96 Z" />
               <path d="M108 118 C99 117 92 112 87 103 C90 100 98 101 106 104 C113 106 114 113 108 118 Z" />
-              <path d="M118 103 C114 107 107 108 99 106 C100 100 107 96 114 95 C119 95 120 99 118 103 Z" />
             </g>
 
-            <!-- White Border Dots on Wings -->
+            <!-- White Border Dots -->
             <g fill="#FFFFFF">
               <circle cx="18" cy="36" r="1.6" /> <circle cx="16" cy="44" r="1.8" /> <circle cx="17" cy="54" r="1.9" />
-              <circle cx="21" cy="65" r="1.7" /> <circle cx="25" cy="74" r="1.6" /> <circle cx="30" cy="83" r="1.6" />
-              <circle cx="28" cy="94" r="1.6" /> <circle cx="29" cy="104" r="1.7" /> <circle cx="33" cy="114" r="1.8" />
-              <circle cx="41" cy="121" r="1.7" /> <circle cx="50" cy="124" r="1.5" /> <circle cx="60" cy="123" r="1.4" />
-              
+              <circle cx="21" cy="65" r="1.7" /> <circle cx="25" cy="74" r="1.6" /> <circle cx="33" cy="114" r="1.8" />
               <circle cx="142" cy="36" r="1.6" /> <circle cx="144" cy="44" r="1.8" /> <circle cx="143" cy="54" r="1.9" />
-              <circle cx="139" cy="65" r="1.7" /> <circle cx="135" cy="74" r="1.6" /> <circle cx="130" cy="83" r="1.6" />
-              <circle cx="132" cy="94" r="1.6" /> <circle cx="131" cy="104" r="1.7" /> <circle cx="127" cy="114" r="1.8" />
-              <circle cx="119" cy="121" r="1.7" /> <circle cx="110" cy="124" r="1.5" /> <circle cx="100" cy="123" r="1.4" />
+              <circle cx="139" cy="65" r="1.7" /> <circle cx="135" cy="74" r="1.6" /> <circle cx="127" cy="114" r="1.8" />
             </g>
 
-            <!-- White Butterfly Body -->
+            <!-- Body -->
             <path d="M80 34 C76.5 34 74 37 74 41 C74 45 76 48 76.5 52 C75 58 74.5 66 75.5 76 C76.5 86 78 98 80 107 C82 98 83.5 86 84.5 76 C85.5 66 85 58 83.5 52 C84 48 86 45 86 41 C86 37 83.5 34 80 34 Z" fill="#17101C" />
             <path d="M80 36 C77.5 36 75.8 38.5 75.8 41.5 C75.8 44.5 77.2 47 77.8 51 C76.6 57 76.2 65 77.2 75 C78.2 85 79.2 97 80 104 C80.8 97 81.8 85 82.8 75 C83.8 65 83.4 57 82.2 51 C82.8 47 84.2 44.5 84.2 41.5 C84.2 38.5 82.5 36 80 36 Z" fill="url(#bfBodyGrad)" />
           </svg>
         </div>
 
         <div>
-          <span class="font-serif text-lg sm:text-3xl font-bold tracking-widest text-cocoa-950 block leading-none uppercase group-hover:text-[#7D4FA8] transition-colors">
+          <span class="font-serif text-lg sm:text-2xl font-bold tracking-widest text-cocoa-950 block leading-none uppercase group-hover:text-[#7D4FA8] transition-colors">
             Butterfly Bliss
           </span>
-          <span class="text-[9px] sm:text-xs uppercase tracking-[0.22em] text-[#7D4FA8] font-extrabold flex items-center gap-1.5 mt-1.5">
-            <span class="h-[1.5px] w-3 sm:w-8 bg-[#B892DC]"></span>
+          <span class="text-[9px] sm:text-[11px] uppercase tracking-[0.22em] text-[#7D4FA8] font-extrabold flex items-center gap-1.5 mt-1.5">
+            <span class="h-[1.5px] w-3 sm:w-6 bg-[#B892DC]"></span>
             <span>Bakery N' More</span>
-            <span class="h-[1.5px] w-3 sm:w-8 bg-[#B892DC]"></span>
+            <span class="h-[1.5px] w-3 sm:w-6 bg-[#B892DC]"></span>
           </span>
         </div>
       </a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-cocoa-800">
-        <a href="#tiktok-showcase" class="hover:text-[#9E72C3] transition-colors flex items-center gap-1.5">
-          <i class="fa-brands fa-tiktok text-xs text-pink-600"></i>
-          <span>TikTok Reels</span>
+        <a href="#proof-hub" class="hover:text-[#9E72C3] transition-colors">Reviews & Reels</a>
+        <a href="#wedding-packages" class="text-[#7D4FA8] hover:text-[#9E72C3] font-bold transition-colors flex items-center gap-1.5">
+          <span>💍</span>
+          <span>Weddings</span>
         </a>
-        <a href="#menu" class="hover:text-[#9E72C3] transition-colors">Menu & Pricing</a>
         <a href="#party-packs" class="hover:text-[#9E72C3] transition-colors">Party Packs</a>
-        <a href="#flavors" class="hover:text-[#9E72C3] transition-colors">Flavors & Fillings</a>
-        <a href="#booking" class="hover:text-[#9E72C3] transition-colors">Book Custom Order</a>
-        <a href="#policy" class="hover:text-[#9E72C3] transition-colors">Policies</a>
+        <a href="#menu" class="hover:text-[#9E72C3] transition-colors">Treats & Cakes</a>
+        <a href="#flavors" class="hover:text-[#9E72C3] transition-colors">Flavors</a>
+        <a href="#booking" class="hover:text-[#9E72C3] transition-colors">Order / Quote</a>
       </nav>
 
-      <!-- Action Buttons & Small Google Sheet Widget -->
+      <!-- Action Buttons & Sheet Status Indicator -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <a href="#booking" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#7D4FA8] via-[#9E72C3] to-blush-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-[#9E72C3]/30 hover:shadow-lg hover:shadow-[#9E72C3]/45 hover:-translate-y-0.5 transition-all">
-          <i class="fa-solid fa-calendar-check text-xs"></i>
-          <span>Order / Quote</span>
+        <a href="#booking" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-gradient-to-r from-[#7D4FA8] via-[#9E72C3] to-blush-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-[#9E72C3]/30 hover:shadow-lg hover:shadow-[#9E72C3]/45 hover:-translate-y-0.5 transition-all">
+          <i class="fa-solid fa-receipt text-xs"></i>
+          <span class="hidden sm:inline">Build Order Quote</span>
+          <span class="sm:hidden">Order</span>
+          <span id="navCartCountBadge" class="hidden px-2 py-0.5 rounded-full bg-white text-cocoa-950 text-[10px] font-extrabold shadow-sm">0</span>
         </a>
 
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 sm:p-2.5 rounded-xl bg-[#E4D5F6]/80 text-cocoa-900 hover:bg-[#CFB5ED] transition-colors" aria-label="Toggle menu">
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-[#E4D5F6]/80 text-cocoa-900 hover:bg-[#CFB5ED] transition-colors" aria-label="Toggle menu">
           <i class="fa-solid fa-bars text-base" id="mobile-menu-icon"></i>
         </button>
 
@@ -241,14 +229,15 @@
 
     <!-- Mobile Nav Dropdown -->
     <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-6 bg-white border-b border-[#E4D5F6] space-y-3">
-      <a href="#tiktok-showcase" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD] flex items-center gap-2">
-        <i class="fa-brands fa-tiktok text-pink-600"></i>
-        <span>TikTok Reels Gallery</span>
+      <a href="#proof-hub" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Customer Reviews & Reels</a>
+      <a href="#wedding-packages" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-[#7D4FA8] font-bold hover:bg-[#FAF7FD] flex items-center gap-2">
+        <span>💍</span>
+        <span>Custom Wedding Packages</span>
       </a>
-      <a href="#menu" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Menu & Treats</a>
-      <a href="#party-packs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Party Packs</a>
-      <a href="#flavors" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Flavors & Fillings</a>
-      <a href="#booking" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Book Custom Order</a>
+      <a href="#party-packs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Custom Party Packs</a>
+      <a href="#menu" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">À La Carte Treats & Cakes</a>
+      <a href="#flavors" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Flavors, Fillings & Parties</a>
+      <a href="#booking" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Order / Instant Quote</a>
       <a href="#policy" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-cocoa-900 font-semibold hover:bg-[#FAF7FD]">Policies & Hours</a>
       
       <div class="flex items-center gap-4 pt-3 px-2 border-t border-[#F3EDFB]">
@@ -270,13 +259,13 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative overflow-hidden pt-10 pb-14 lg:pt-14 lg:pb-20">
-    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[760px] h-[500px] bg-gradient-to-tr from-[#E4D5F6]/50 via-blush-200/40 to-[#CFB5ED]/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <section class="relative overflow-hidden pt-10 pb-12 lg:pt-14 lg:pb-16">
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[760px] h-[480px] bg-gradient-to-tr from-[#E4D5F6]/50 via-blush-200/40 to-[#CFB5ED]/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Top Hero Header & Introduction -->
-      <div class="text-center max-w-3xl mx-auto space-y-5 mb-10">
+      <!-- Top Hero Content -->
+      <div class="text-center max-w-3xl mx-auto space-y-5">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#CFB5ED] shadow-sm text-xs font-extrabold text-[#7D4FA8] tracking-wide uppercase">
           <span class="text-base">🦋</span> PEORIA, IL ARTISAN BAKERY & CUSTOM TREATS
         </div>
@@ -287,316 +276,628 @@
         </h1>
 
         <p class="text-sm sm:text-base lg:text-lg text-cocoa-800/85 max-w-2xl mx-auto font-normal leading-relaxed">
-          Welcome to <strong>Butterfly Bliss Bakery N' More</strong>. We create custom tiered & vintage heart cakes, dessert party packs, gourmet chocolate treats, and mobile kids decorating parties right here in Peoria, Illinois!
+          Welcome to <strong>Butterfly Bliss Bakery N' More</strong>. We craft custom wedding dessert spreads, tiered cakes, celebration party packs, gourmet dipped sweets, and interactive mobile cake decorating parties right here in Peoria, Illinois!
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
-          <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full bg-cocoa-950 hover:bg-cocoa-900 text-white font-bold text-sm sm:text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3">
-            <span>Book Your Custom Order</span>
-            <i class="fa-solid fa-arrow-right text-xs text-[#E4D5F6]"></i>
+          <a href="#wedding-packages" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#7D4FA8] to-[#9E72C3] hover:opacity-95 text-white font-bold text-sm sm:text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3">
+            <span>Wedding Packages</span>
+            <i class="fa-solid fa-ring text-xs text-[#E4D5F6]"></i>
           </a>
-          <a href="#menu" class="w-full sm:w-auto px-7 py-4 rounded-full bg-white hover:bg-[#FAF7FD] text-cocoa-900 border border-[#E4D5F6] font-bold text-sm sm:text-base shadow-sm transition-all flex items-center justify-center gap-2">
-            <i class="fa-solid fa-book-open text-[#9E72C3]"></i>
-            <span>Explore Menu & Packages</span>
+          <a href="#party-packs" class="w-full sm:w-auto px-7 py-4 rounded-full bg-white hover:bg-[#FAF7FD] text-cocoa-900 border border-[#E4D5F6] font-bold text-sm sm:text-base shadow-sm transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-gift text-[#9E72C3]"></i>
+            <span>Party Packs</span>
+          </a>
+          <a href="#menu" class="w-full sm:w-auto px-7 py-4 rounded-full bg-[#FAF7FD] hover:bg-[#F3EDFB] text-[#7D4FA8] border border-[#CFB5ED] font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cookie-bite text-sm"></i>
+            <span>À La Carte Treats</span>
           </a>
         </div>
       </div>
 
-      <!-- 3 Horizontal Real Client Reviews & Photo Showcase -->
-      <div>
-        <div class="flex items-center justify-between mb-5 px-1">
-          <div class="flex items-center gap-2">
-            <span class="flex text-amber-400 text-sm">
+    </div>
+  </section>
+
+  <!-- CONSOLIDATED SOCIAL PROOF HUB: Verified Client Reviews + Official TikTok Reels -->
+  <section id="proof-hub" class="py-12 lg:py-16 bg-gradient-to-b from-[#FCFAF7] via-[#F8F2FD] to-white border-y border-[#E4D5F6] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#7D4FA8] bg-white px-3.5 py-1 rounded-full border border-[#CFB5ED] shadow-xs mb-2">
+            <span class="flex text-amber-400 text-xs gap-0.5">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </span>
-            <span class="text-xs sm:text-sm font-bold text-cocoa-950">Loved by Peoria Clients</span>
+            <span>Loved by Peoria Clients & Trending on TikTok</span>
           </div>
-          <span class="text-xs font-semibold text-[#7D4FA8] bg-[#E4D5F6]/50 px-3 py-1 rounded-full border border-[#CFB5ED]">
-            Real Customer Orders & Reviews
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cocoa-950">
+            Real Customer Orders & Kitchen Feed
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://www.tiktok.com/@butterfly.bliss.b0?lang=en" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-gradient-to-r from-cocoa-950 via-[#4D2D73] to-[#7D4FA8] hover:opacity-95 text-white font-bold text-xs shadow-sm flex items-center gap-2">
+            <i class="fa-brands fa-tiktok text-pink-400"></i>
+            <span>@butterfly.bliss.b0</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-0.5 text-[#CFB5ED]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Real Client Review Cards -->
+      <div>
+        <div class="flex items-center justify-between mb-3 lg:hidden">
+          <span class="text-xs font-bold text-cocoa-950 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-comments text-[#9E72C3]"></i>
+            <span>Verified Customer Reviews</span>
+          </span>
+          <span class="text-[11px] text-cocoa-800/70 flex items-center gap-1">
+            <span>Scroll right</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <!-- Review Card 1: Custom Cupcakes -->
-          <div class="bg-white rounded-3xl overflow-hidden border border-[#E4D5F6] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-            <div class="relative h-52 sm:h-56 w-full overflow-hidden bg-[#FAF7FD]">
-              <img 
-                src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=800&auto=format&fit=crop" 
-                alt="Custom Themed Cupcakes by Butterfly Bliss Bakery" 
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
-              <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-sm flex items-center gap-1.5">
-                <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 text-white">
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Custom Cupcake Set</span>
-                <h4 class="font-serif text-lg font-bold leading-tight">Pastel Birthday Theme</h4>
-              </div>
-            </div>
+        <div class="w-full overflow-x-auto pb-3 custom-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div class="grid grid-flow-col auto-cols-[260px] sm:auto-cols-[280px] lg:grid-cols-4 lg:grid-flow-row gap-5 min-w-max lg:min-w-0">
             
-            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-              <div class="flex items-center justify-between">
-                <div class="flex text-amber-400 text-xs gap-0.5">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <!-- Review Card 1: Kids Party Cake & Cupcakes (images/cake3.png) -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+                <img 
+                  src="images/cake3.png" 
+                  alt="Kids Birthday Cake and Matching Cupcakes" 
+                  class="w-full h-full object-cover"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=800&auto=format&fit=crop';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-xs flex items-center gap-1">
+                  <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
                 </div>
-                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
-                  <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Order
+                <div class="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span class="text-[9px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Kids Birthday Combo</span>
+                  <h4 class="font-serif text-sm font-bold leading-tight">Custom Cake & Cupcake Tower</h4>
+                </div>
+              </div>
+              
+              <div class="p-4 flex-1 flex flex-col justify-between space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="flex text-amber-400 text-[11px] gap-0.5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Verified
+                  </span>
+                </div>
+                <p class="text-xs text-cocoa-800 leading-relaxed italic">
+                  "Butterfly Bliss knocked it out of the park for our kids party! The cake and matching cupcakes had every parent asking where we ordered from. Incredibly moist and beautifully decorated."
+                </p>
+                <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-cocoa-950">Taylor M.</span>
+                  <span class="text-cocoa-800/60">Peoria, IL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review Card 2: Chocolate Covered Strawberries (images/strawberries2.png) -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+                <img 
+                  src="images/strawberries2.png" 
+                  alt="Gourmet Chocolate Covered Strawberries" 
+                  class="w-full h-full object-cover"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=800&auto=format&fit=crop';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-xs flex items-center gap-1">
+                  <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
+                </div>
+                <div class="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span class="text-[9px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Gourmet Dipped Treat</span>
+                  <h4 class="font-serif text-sm font-bold leading-tight">Hand-Dipped Strawberries</h4>
+                </div>
+              </div>
+
+              <div class="p-4 flex-1 flex flex-col justify-between space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="flex text-amber-400 text-[11px] gap-0.5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Verified
+                  </span>
+                </div>
+                <p class="text-xs text-cocoa-800 leading-relaxed italic">
+                  "The chocolate covered strawberries were huge, fresh, and decorated to absolute perfection. The crunch crumble topping is pure addiction. Hands down the best in the area!"
+                </p>
+                <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-cocoa-950">Brianna K.</span>
+                  <span class="text-cocoa-800/60">East Peoria, IL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review Card 3: Daughter's Birthday Cake (images/birthday.png) -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+                <img 
+                  src="images/birthday.png" 
+                  alt="Daughter's Custom Birthday Cake" 
+                  class="w-full h-full object-cover"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=800&auto=format&fit=crop';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-xs flex items-center gap-1">
+                  <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
+                </div>
+                <div class="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span class="text-[9px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Birthday Milestone</span>
+                  <h4 class="font-serif text-sm font-bold leading-tight">Daughter's Custom Cake</h4>
+                </div>
+              </div>
+
+              <div class="p-4 flex-1 flex flex-col justify-between space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="flex text-amber-400 text-[11px] gap-0.5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Verified
+                  </span>
+                </div>
+                <p class="text-xs text-cocoa-800 leading-relaxed italic">
+                  "My daughter's face lit up completely when she saw her cake! The piping details and colors were exactly what she dreamed of, and the taste was even better than it looked."
+                </p>
+                <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-cocoa-950">Ashley D.</span>
+                  <span class="text-cocoa-800/60">Bartonville, IL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review Card 4: Son's Birthday Cake (Goku / DBZ) (images/dbz.png) -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+                <img 
+                  src="images/dbz.png" 
+                  alt="Son's Custom Dragon Ball Z Goku Birthday Cake" 
+                  class="w-full h-full object-cover"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-xs flex items-center gap-1">
+                  <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
+                </div>
+                <div class="absolute bottom-2.5 left-3 right-3 text-white">
+                  <span class="text-[9px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Character Cake</span>
+                  <h4 class="font-serif text-sm font-bold leading-tight">Son's Goku Themed Cake</h4>
+                </div>
+              </div>
+
+              <div class="p-4 flex-1 flex flex-col justify-between space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="flex text-amber-400 text-[11px] gap-0.5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Verified
+                  </span>
+                </div>
+                <p class="text-xs text-cocoa-800 leading-relaxed italic">
+                  "We ordered a custom Goku cake for my son's birthday and he was blown away! Everyone at the party couldn't stop taking pictures. Delicious chocolate layers and superb artwork."
+                </p>
+                <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-cocoa-950">Marcus & Nicole W.</span>
+                  <span class="text-cocoa-800/60">Peoria, IL</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Real TikTok Video Reels Grid (5-Card Layout) -->
+      <div class="pt-4">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold text-cocoa-950 uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-brands fa-tiktok text-pink-600"></i>
+            <span>Fresh From The Bakery TikTok</span>
+          </span>
+          <span class="text-[11px] text-cocoa-800/70">Tap any video to watch</span>
+        </div>
+
+        <div class="w-full overflow-x-auto pb-2 custom-scrollbar">
+          <div class="grid grid-flow-col auto-cols-[210px] sm:auto-cols-[230px] lg:grid-cols-5 lg:grid-flow-row gap-4 min-w-max lg:min-w-0" id="tiktokVideoGrid">
+            
+            <!-- Video 1: Henny Cake -->
+            <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7648739014681414925', 'Henny Cake', 'Custom Hennessy celebration bottle drip cake with premium accents!')">
+              <img id="ttImg_7648739014681414925" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Henny Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
+              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
+              
+              <div class="relative z-10 flex items-center justify-between text-white">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
+                  <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#9E72C3]/90 text-white">
+                  Custom Cake
                 </span>
               </div>
-              <p class="text-xs sm:text-sm text-cocoa-800 leading-relaxed italic">
-                "The cupcakes for my daughter’s birthday party were stunning! Everyone couldn't stop raving about how moist the chocolate was and the piping matched our theme to perfection."
-              </p>
-              <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-xs">
-                <span class="font-bold text-cocoa-950">Amanda R.</span>
-                <span class="text-cocoa-800/60">Peoria, IL</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Review Card 2: Chocolate Covered Strawberries -->
-          <div class="bg-white rounded-3xl overflow-hidden border border-[#E4D5F6] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-            <div class="relative h-52 sm:h-56 w-full overflow-hidden bg-[#FAF7FD]">
-              <img 
-                src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=800&auto=format&fit=crop" 
-                alt="Gourmet Chocolate Covered Strawberries with Crunch Crumble" 
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
-              <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-sm flex items-center gap-1.5">
-                <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 text-white">
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Gourmet Dipped Treat</span>
-                <h4 class="font-serif text-lg font-bold leading-tight">Strawberry Shortcake Crunch Box</h4>
-              </div>
-            </div>
-
-            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-              <div class="flex items-center justify-between">
-                <div class="flex text-amber-400 text-xs gap-0.5">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
+                <div class="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-110 group-hover:bg-[#9E72C3] transition-all shadow-lg">
+                  <i class="fa-solid fa-play ml-0.5"></i>
                 </div>
-                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
-                  <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Order
+              </div>
+
+              <div class="relative z-10 space-y-1 text-white">
+                <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Henny Cake</h3>
+                <p class="text-[10px] text-white/80 line-clamp-1">Hennessy celebration bottle drip</p>
+                <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
+                  <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
                 </span>
               </div>
-              <p class="text-xs sm:text-sm text-cocoa-800 leading-relaxed italic">
-                "Ordered a dozen strawberries for our baby shower treat table. The cheesecake crumble coating was out of this world! They were huge, fresh, and packaged so beautifully."
-              </p>
-              <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-xs">
-                <span class="font-bold text-cocoa-950">Brittany M.</span>
-                <span class="text-cocoa-800/60">East Peoria, IL</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review Card 3: Whole Gourmet Cheesecake -->
-          <div class="bg-white rounded-3xl overflow-hidden border border-[#E4D5F6] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-            <div class="relative h-52 sm:h-56 w-full overflow-hidden bg-[#FAF7FD]">
-              <img 
-                src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=800&auto=format&fit=crop" 
-                alt="Whole Gourmet Strawberry Cheesecake" 
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950/70 via-transparent to-transparent"></div>
-              <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#7D4FA8] backdrop-blur-md shadow-sm flex items-center gap-1.5">
-                <i class="fa-solid fa-camera text-[#9E72C3]"></i> Client Photo
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 text-white">
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Bakery Special</span>
-                <h4 class="font-serif text-lg font-bold leading-tight">Whole Strawberry Swirl Cheesecake</h4>
-              </div>
             </div>
 
-            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-              <div class="flex items-center justify-between">
-                <div class="flex text-amber-400 text-xs gap-0.5">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
-                  <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Order
+            <!-- Video 2: Angel & Stitch Cake -->
+            <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7672129970357030157', 'Angel & Stitch Cake', 'Adorable Angel & Stitch character birthday cake with pastel piping!')">
+              <img id="ttImg_7672129970357030157" src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=800&auto=format&fit=crop" alt="Angel & Stitch Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
+              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
+
+              <div class="relative z-10 flex items-center justify-between text-white">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
+                  <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#7D4FA8]/90 text-white">
+                  Character Cake
                 </span>
               </div>
-              <p class="text-xs sm:text-sm text-cocoa-800 leading-relaxed italic">
-                "Best cheesecake in town hands down! Thick, rich, and with real fruit topping. Butterfly Bliss made our anniversary dinner extra special. We will be regular customers!"
-              </p>
-              <div class="pt-2 border-t border-[#F3EDFB] flex items-center justify-between text-xs">
-                <span class="font-bold text-cocoa-950">Marcus & Danielle T.</span>
-                <span class="text-cocoa-800/60">Peoria, IL</span>
+
+              <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
+                <div class="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-110 group-hover:bg-[#9E72C3] transition-all shadow-lg">
+                  <i class="fa-solid fa-play ml-0.5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10 space-y-1 text-white">
+                <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Angel & Stitch Cake</h3>
+                <p class="text-[10px] text-white/80 line-clamp-1">Disney Stitch & Angel birthday cake</p>
+                <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
+                  <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                </span>
               </div>
             </div>
-          </div>
 
+            <!-- Video 3: Cocomelon Treats -->
+            <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7619469465029332238', 'Cocomelon Treats', 'Colorful Cocomelon party pack with custom dipped Oreos and Rice Krispies!')">
+              <img id="ttImg_7619469465029332238" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop" alt="Cocomelon Treats on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
+              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
+
+              <div class="relative z-10 flex items-center justify-between text-white">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
+                  <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#9E72C3]/90 text-white">
+                  Party Treats
+                </span>
+              </div>
+
+              <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
+                <div class="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-110 group-hover:bg-[#9E72C3] transition-all shadow-lg">
+                  <i class="fa-solid fa-play ml-0.5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10 space-y-1 text-white">
+                <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Cocomelon Treats</h3>
+                <p class="text-[10px] text-white/80 line-clamp-1">Custom theme dipped treat set</p>
+                <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
+                  <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Video 4: Jurassic Cake -->
+            <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7674822234552274189', 'Jurassic Cake', 'Jurassic World dinosaur cake with realistic crumbles and foliage!')">
+              <img id="ttImg_7674822234552274189" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Jurassic Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
+              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
+
+              <div class="relative z-10 flex items-center justify-between text-white">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
+                  <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-amber-500/90 text-white">
+                  Dinosaur Cake
+                </span>
+              </div>
+
+              <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
+                <div class="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-110 group-hover:bg-[#9E72C3] transition-all shadow-lg">
+                  <i class="fa-solid fa-play ml-0.5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10 space-y-1 text-white">
+                <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Jurassic Cake</h3>
+                <p class="text-[10px] text-white/80 line-clamp-1">Jurassic World dinosaur party</p>
+                <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
+                  <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Video 5: 3-Tier Wedding Cake (Default: images/wedding.png) -->
+            <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/photo/7679245173900971277?image_index=2&lang=en', '3-Tier Wedding Cake', 'Bespoke 3-tier custom wedding cake designed for a sweet celebration!')">
+              <img id="ttImg_7679245173900971277" src="images/wedding.png" onerror="this.onerror=null; this.src='images/wedding_cake.png'; this.onerror=function(){ this.src='https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=800&auto=format&fit=crop'; };" alt="3-Tier Wedding Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+              <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
+
+              <div class="relative z-10 flex items-center justify-between text-white">
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
+                  <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Post
+                </span>
+                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#7D4FA8]/90 text-white">
+                  Wedding Cake
+                </span>
+              </div>
+
+              <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
+                <div class="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-110 group-hover:bg-[#9E72C3] transition-all shadow-lg">
+                  <i class="fa-solid fa-play ml-0.5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10 space-y-1 text-white">
+                <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">3-Tier Wedding Cake</h3>
+                <p class="text-[10px] text-white/80 line-clamp-1">Custom tiered wedding centerpiece</p>
+                <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
+                  <span>Watch Post</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                </span>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Compact Client TikTok Showcase (Height Adjusted) -->
-  <section id="tiktok-showcase" class="py-10 lg:py-14 bg-gradient-to-b from-[#FCFAF7] via-[#F8F2FD] to-[#FCFAF7] border-t border-[#E4D5F6] relative overflow-hidden">
+  <!-- SECTION 1 OF PACKAGES: Custom Wedding Packages -->
+  <section id="wedding-packages" class="py-16 lg:py-20 bg-gradient-to-b from-[#FAF5FF] via-white to-[#F8F2FD] border-b border-[#E4D5F6] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- TikTok Showcase Header -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-        <div>
-          <div class="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#7D4FA8] bg-white px-3 py-1 rounded-full border border-[#CFB5ED] shadow-xs mb-2">
-            <i class="fa-brands fa-tiktok text-xs text-pink-600"></i>
-            <span>Trending on TikTok • @butterfly.bliss.b0</span>
-          </div>
-          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cocoa-950">
-            Fresh from the Kitchen Feed
-          </h2>
-          <p class="text-cocoa-800/80 text-xs sm:text-sm mt-1 max-w-xl">
-            Watch our cakes & party treats come to life in Peoria, IL! Tap any reel below to watch on TikTok.
-          </p>
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold bg-[#7D4FA8] text-white shadow-sm tracking-wide uppercase">
+          <span>💍</span> Handcrafted Peoria Wedding Collections
         </div>
-
-        <div class="flex items-center gap-3 shrink-0">
-          <a href="https://www.tiktok.com/@butterfly.bliss.b0?lang=en" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-gradient-to-r from-cocoa-950 via-[#4D2D73] to-[#7D4FA8] hover:from-[#7D4FA8] hover:to-[#9E72C3] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
-            <i class="fa-brands fa-tiktok text-sm group-hover:scale-110 transition-transform"></i>
-            <span>Follow on TikTok</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-[#CFB5ED] ml-1"></i>
-          </a>
-        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cocoa-950">
+          Custom Wedding Packages
+        </h2>
+        <p class="text-sm sm:text-base text-cocoa-800/85 max-w-2xl mx-auto">
+          Celebrate your big day with an elegant spread crafted with love. Choose from our complete dessert spreads, tiered packages, or single wedding cakes.
+        </p>
       </div>
 
-      <!-- Compact 4:5 Height-Adjusted TikTok Video Cards Grid -->
-      <div class="w-full overflow-x-auto pb-3 custom-scrollbar">
-        <div class="grid grid-flow-col auto-cols-[220px] sm:auto-cols-[240px] lg:grid-cols-4 lg:grid-flow-row gap-4 min-w-max lg:min-w-0" id="tiktokVideoGrid">
-          
-          <!-- Video 1: Henny Cake -->
-          <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7648739014681414925', 'Henny Cake', 'Custom Hennessy celebration bottle drip cake with premium accents!')">
-            <img id="ttImg_7648739014681414925" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Henny Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
-            <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
+      <!-- Wedding Packages Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        
+        <!-- Wedding Package #1 -->
+        <div class="bg-white rounded-3xl p-6 border border-[#CFB5ED] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] font-black text-sm flex items-center justify-center border border-[#CFB5ED]">
+                #1
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#7D4FA8] bg-[#FAF5FF] px-2.5 py-1 rounded-full border border-[#CFB5ED]">
+                Essential
+              </span>
+            </div>
             
-            <div class="relative z-10 flex items-center justify-between text-white">
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
-                <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
-              </span>
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#9E72C3]/90 text-white">
-                Custom Cake
-              </span>
+            <div>
+              <h3 class="font-serif text-xl font-bold text-cocoa-950">Wedding Package #1</h3>
+              <div class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$160</div>
             </div>
 
-            <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
-              <div class="w-11 h-11 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-115 group-hover:bg-[#9E72C3] transition-all shadow-lg">
-                <i class="fa-solid fa-play ml-0.5"></i>
-              </div>
-            </div>
-
-            <div class="relative z-10 space-y-1 text-white">
-              <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Henny Cake</h3>
-              <p class="text-[10px] text-white/80 line-clamp-1">Hennessy bottle drip cake design</p>
-              <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
-                <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
-              </span>
-            </div>
+            <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>1 Dozen</strong> Cheesecake or Pudding Shooters</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>2 Dozen</strong> Frosted Cupcakes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>Single Tier</strong> Custom Cake</span>
+              </li>
+            </ul>
           </div>
 
-          <!-- Video 2: Angel & Stitch Cake -->
-          <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7672129970357030157', 'Angel & Stitch Cake', 'Adorable Angel & Stitch character birthday cake with pastel piping!')">
-            <img id="ttImg_7672129970357030157" src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=800&auto=format&fit=crop" alt="Angel & Stitch Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
-            <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
-
-            <div class="relative z-10 flex items-center justify-between text-white">
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
-                <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
-              </span>
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#7D4FA8]/90 text-white">
-                Character Cake
-              </span>
-            </div>
-
-            <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
-              <div class="w-11 h-11 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-115 group-hover:bg-[#9E72C3] transition-all shadow-lg">
-                <i class="fa-solid fa-play ml-0.5"></i>
-              </div>
-            </div>
-
-            <div class="relative z-10 space-y-1 text-white">
-              <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Angel & Stitch Cake</h3>
-              <p class="text-[10px] text-white/80 line-clamp-1">Disney Stitch & Angel birthday cake</p>
-              <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
-                <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
-              </span>
-            </div>
+          <div class="pt-6">
+            <button onclick="addItemToActiveTicket('wedding_pkg_1', 'Wedding Package #1', 'Wedding Package #1', 160)" class="w-full py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+              <span>Add Package #1 to Quote</span> &rarr;
+            </button>
           </div>
-
-          <!-- Video 3: Cocomelon Treats -->
-          <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7619469465029332238', 'Cocomelon Treats', 'Colorful Cocomelon party pack with custom dipped Oreos and Rice Krispies!')">
-            <img id="ttImg_7619469465029332238" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop" alt="Cocomelon Treats on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
-            <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
-
-            <div class="relative z-10 flex items-center justify-between text-white">
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
-                <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
-              </span>
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#9E72C3]/90 text-white">
-                Party Treats
-              </span>
-            </div>
-
-            <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
-              <div class="w-11 h-11 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-115 group-hover:bg-[#9E72C3] transition-all shadow-lg">
-                <i class="fa-solid fa-play ml-0.5"></i>
-              </div>
-            </div>
-
-            <div class="relative z-10 space-y-1 text-white">
-              <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Cocomelon Treats</h3>
-              <p class="text-[10px] text-white/80 line-clamp-1">Custom theme dipped treat set</p>
-              <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
-                <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
-              </span>
-            </div>
-          </div>
-
-          <!-- Video 4: Jurassic Cake -->
-          <div class="group relative rounded-2xl overflow-hidden bg-cocoa-950 aspect-[4/5] shadow-md hover:shadow-xl border border-[#E4D5F6] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between p-3.5 cursor-pointer" onclick="openClientTikTok('https://www.tiktok.com/@butterfly.bliss.b0/video/7674822234552274189', 'Jurassic Cake', 'Jurassic World dinosaur cake with realistic crumbles and foliage!')">
-            <img id="ttImg_7674822234552274189" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Jurassic Cake on TikTok" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85">
-            <div class="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-cocoa-950/30 to-cocoa-950/60"></div>
-
-            <div class="relative z-10 flex items-center justify-between text-white">
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 backdrop-blur-md flex items-center gap-1 border border-white/10">
-                <i class="fa-brands fa-tiktok text-pink-400"></i> TikTok Reel
-              </span>
-              <span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-amber-500/90 text-white">
-                Dinosaur Cake
-              </span>
-            </div>
-
-            <div class="relative z-10 flex items-center justify-center pointer-events-none my-auto">
-              <div class="w-11 h-11 rounded-full bg-white/25 backdrop-blur-md border border-white/60 text-white flex items-center justify-center text-sm group-hover:scale-115 group-hover:bg-[#9E72C3] transition-all shadow-lg">
-                <i class="fa-solid fa-play ml-0.5"></i>
-              </div>
-            </div>
-
-            <div class="relative z-10 space-y-1 text-white">
-              <h3 class="font-serif font-bold text-sm leading-snug line-clamp-1">Jurassic Cake</h3>
-              <p class="text-[10px] text-white/80 line-clamp-1">Jurassic World dinosaur celebration</p>
-              <span class="text-[10px] text-[#CFB5ED] font-bold block pt-0.5 group-hover:underline flex items-center gap-1">
-                <span>Watch Reel</span> <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
-              </span>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Wedding Package #2 -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-[#9E72C3] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7D4FA8] text-white text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm">
+            Most Popular
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] font-black text-sm flex items-center justify-center border border-[#CFB5ED]">
+                #2
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-white bg-[#9E72C3] px-2.5 py-1 rounded-full">
+                2-Tier Cake
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="font-serif text-xl font-bold text-cocoa-950">Wedding Package #2</h3>
+              <div class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$260</div>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>2 Dozen</strong> Dessert Cups (Cheesecake/Pudding)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>2 Dozen</strong> Frosted Cupcakes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>2-Tier</strong> Custom Wedding Cake</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6">
+            <button onclick="addItemToActiveTicket('wedding_pkg_2', 'Wedding Package #2', 'Wedding Package #2', 260)" class="w-full py-2.5 rounded-xl bg-[#7D4FA8] hover:bg-[#643A89] text-white font-bold text-xs shadow-md transition-colors flex items-center justify-center gap-1.5">
+              <span>Add Package #2 to Quote</span> &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Wedding Package #3 -->
+        <div class="bg-white rounded-3xl p-6 border border-[#CFB5ED] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] font-black text-sm flex items-center justify-center border border-[#CFB5ED]">
+                #3
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#7D4FA8] bg-[#FAF5FF] px-2.5 py-1 rounded-full border border-[#CFB5ED]">
+                Dessert Table
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="font-serif text-xl font-bold text-cocoa-950">Package #3 (Dessert Table)</h3>
+              <div class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$360</div>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>Pick 3–5 Dozen</strong> Dessert Items</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span>Cheesecake or Pudding Shooters + Cupcakes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span><strong>2-Tier</strong> Custom Centerpiece Cake</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6">
+            <button onclick="addItemToActiveTicket('wedding_pkg_3', 'Wedding Package #3 (Dessert Table)', 'Dessert Table Package', 360)" class="w-full py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+              <span>Add Package #3 to Quote</span> &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Wedding Option #4: Custom Wedding Cakes Only -->
+        <div class="bg-gradient-to-br from-[#FAF5FF] to-white rounded-3xl p-6 border border-[#CFB5ED] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] font-black text-sm flex items-center justify-center border border-[#CFB5ED]">
+                #4
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#7D4FA8] bg-white px-2.5 py-1 rounded-full border border-[#CFB5ED]">
+                Cake Only
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="font-serif text-xl font-bold text-cocoa-950">Custom Wedding Cakes Only</h3>
+              <div class="font-serif text-xl font-black text-[#7D4FA8] mt-1">Direct Quote</div>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span>Multi-tier bespoke wedding cake design</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span>Personalized design consultation & tasting</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-emerald-600 mt-0.5 text-[11px]"></i>
+                <span>Book 1–2 months in advance</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6">
+            <a href="tel:3094159636" class="w-full py-2.5 rounded-xl bg-white hover:bg-[#FAF7FD] text-cocoa-950 border border-[#CFB5ED] font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-phone text-[#9E72C3]"></i>
+              <span>Call / Text for Wedding Quote</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Wedding Services & Policies Callout -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-[#CFB5ED] shadow-sm grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] flex items-center justify-center shrink-0 text-base">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs uppercase tracking-wider text-cocoa-950">1–2 Months Advance Booking</h4>
+            <p class="text-xs text-cocoa-800 mt-1 leading-relaxed">
+              Weddings require advance coordination. Please book at least <strong>1–2 months in advance</strong> to guarantee your date.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 text-base border border-emerald-200">
+            <i class="fa-solid fa-truck-ramp-box"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs uppercase tracking-wider text-cocoa-950">On-Site Set Up (+ $50)</h4>
+            <p class="text-xs text-cocoa-800 mt-1 leading-relaxed">
+              We deliver directly to your Peoria venue and professionally arrange and style your dessert presentation.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 text-base border border-amber-200">
+            <i class="fa-solid fa-shapes"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs uppercase tracking-wider text-cocoa-950">Display Stands Provided (+ $75)</h4>
+            <p class="text-xs text-cocoa-800 mt-1 leading-relaxed">
+              Need stands? We provide matching cake pedestals, tiered stands, and display risers to make your table picture-perfect.
+            </p>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- High-Contrast Custom Dessert Party Packs Section -->
-  <section id="party-packs" class="py-14 lg:py-18 bg-gradient-to-b from-[#F3EDFB] via-white to-[#FAF7FD] text-cocoa-950 border-y border-[#E4D5F6] relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- SECTION 2 OF PACKAGES: Custom Dessert Party Packs -->
+  <section id="party-packs" class="py-16 lg:py-20 bg-gradient-to-b from-white via-[#FAF7FD] to-white border-b border-[#E4D5F6] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border-2 border-[#CFB5ED] shadow-xl space-y-8">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#CFB5ED] shadow-xl space-y-8">
         
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#E4D5F6]">
-          
           <div class="space-y-3 max-w-3xl">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-[#7D4FA8] text-white shadow-sm tracking-wide">
               <span>🎉</span> MOST POPULAR FOR BIRTHDAYS & BABY SHOWERS
@@ -606,14 +907,14 @@
               Custom Dessert Party Packs
             </h2>
             
-            <p class="text-base sm:text-lg text-[#170C0A] font-semibold leading-relaxed">
-              Take the stress out of party planning with our bundled dessert tables! Includes Rice Crispy treats, Oreos, pretzel rods/bows, jumbo marshmallows, gourmet apples, and custom cakes.
+            <p class="text-sm sm:text-base text-[#170C0A] font-semibold leading-relaxed">
+              Take the stress out of party planning with our bundled dessert tables! Includes Rice Crispy treats, Oreos, pretzel rods/bows, jumbo marshmallows, gourmet apples, and custom cakes with custom colors included.
             </p>
           </div>
 
           <div class="shrink-0">
-            <a href="#booking" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#170C0A] hover:bg-[#7D4FA8] text-white font-extrabold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full sm:w-auto">
-              <span>Customize Your Party Pack</span>
+            <a href="#booking" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#170C0A] hover:bg-[#7D4FA8] text-white font-extrabold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full sm:w-auto">
+              <span>Customize In Order Form</span>
               <i class="fa-solid fa-arrow-right text-xs text-[#E4D5F6]"></i>
             </a>
           </div>
@@ -621,53 +922,113 @@
 
         <div>
           <h3 class="text-xs font-extrabold uppercase tracking-widest text-[#4D2D73] mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-tag text-[#9E72C3]"></i> Pack Options & Value Breakdown
+            <i class="fa-solid fa-tag text-[#9E72C3]"></i> Select A Pack To Add Directly To Your Quote:
           </h3>
           
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             
-            <div class="bg-[#FAF7FD] rounded-2xl p-4 border border-[#CFB5ED] shadow-sm text-center hover:border-[#9E72C3] transition-colors">
-              <div class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Mini Pack</div>
-              <div class="font-serif text-2xl font-black text-[#170C0A] mt-1">$115</div>
-              <div class="text-[11px] text-cocoa-900 font-semibold mt-1">3 Dozen Treats</div>
+            <!-- Mini Pack Card -->
+            <div class="bg-[#FAF7FD] rounded-2xl p-5 border border-[#CFB5ED] shadow-sm flex flex-col justify-between hover:border-[#9E72C3] transition-all">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Mini Party Pack</span>
+                  <span class="font-serif text-2xl font-black text-[#170C0A]">$115</span>
+                </div>
+                <p class="text-xs text-cocoa-800 mt-2 leading-relaxed">
+                  Includes 1 dz Rice Crispy Treats, 1 dz Pretzel Rods/Bows, and 1 dz Oreos. Custom theme colors included.
+                </p>
+              </div>
+              <button onclick="addItemToActiveTicket('pack_mini', 'Mini Party Pack', 'Full Mini Pack', 115)" class="mt-4 w-full py-2 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors">
+                + Add Mini Pack ($115)
+              </button>
             </div>
 
-            <div class="bg-[#FAF7FD] rounded-2xl p-4 border border-[#CFB5ED] shadow-sm text-center hover:border-[#9E72C3] transition-colors">
-              <div class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Small Pack</div>
-              <div class="font-serif text-2xl font-black text-[#170C0A] mt-1">$130</div>
-              <div class="text-[11px] text-cocoa-900 font-semibold mt-1">4 Dozen Treats</div>
+            <!-- Small Pack Card -->
+            <div class="bg-[#FAF7FD] rounded-2xl p-5 border border-[#CFB5ED] shadow-sm flex flex-col justify-between hover:border-[#9E72C3] transition-all">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Small Party Pack</span>
+                  <span class="font-serif text-2xl font-black text-[#170C0A]">$130</span>
+                </div>
+                <p class="text-xs text-cocoa-800 mt-2 leading-relaxed">
+                  Includes 1 dz Rice Crispy Treats, 1 dz Pretzel Rods/Bows, 1 dz Oreos, and 1 dz Marshmallows.
+                </p>
+              </div>
+              <button onclick="addItemToActiveTicket('pack_small', 'Small Party Pack', 'Full Small Pack', 130)" class="mt-4 w-full py-2 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors">
+                + Add Small Pack ($130)
+              </button>
             </div>
 
-            <div class="bg-[#F3EDFB] rounded-2xl p-4 border-2 border-[#9E72C3] shadow-md text-center transform sm:-translate-y-1">
-              <span class="inline-block text-[9px] font-black uppercase tracking-wider bg-[#7D4FA8] text-white px-2 py-0.5 rounded-full mb-1">Best Value</span>
-              <div class="text-xs font-bold uppercase tracking-wider text-cocoa-900">Medium Pack</div>
-              <div class="font-serif text-2xl font-black text-[#4D2D73] mt-0.5">$170</div>
-              <div class="text-[11px] text-[#170C0A] font-bold mt-1">5 Dz + 6 Apples</div>
+            <!-- Medium Pack Card (Best Value) -->
+            <div class="bg-[#F3EDFB] rounded-2xl p-5 border-2 border-[#9E72C3] shadow-md flex flex-col justify-between relative">
+              <span class="absolute -top-3 right-4 text-[9px] font-black uppercase tracking-wider bg-[#7D4FA8] text-white px-2.5 py-0.5 rounded-full shadow-xs">Best Value</span>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cocoa-950">Medium Party Pack</span>
+                  <span class="font-serif text-2xl font-black text-[#4D2D73]">$170</span>
+                </div>
+                <p class="text-xs text-cocoa-900 mt-2 leading-relaxed font-medium">
+                  Includes 2 dz Rice Crispy Treats, 1 dz Oreos, 1 dz Pretzel Rods/Bows, 1 dz Marshmallows, & 6 Whole Apples.
+                </p>
+              </div>
+              <button onclick="addItemToActiveTicket('pack_medium', 'Medium Party Pack', 'Full Medium Pack', 170)" class="mt-4 w-full py-2 rounded-xl bg-[#7D4FA8] hover:bg-[#643A89] text-white text-xs font-bold shadow-sm transition-colors">
+                + Add Medium Pack ($170)
+              </button>
             </div>
 
-            <div class="bg-[#FAF7FD] rounded-2xl p-4 border border-[#CFB5ED] shadow-sm text-center hover:border-[#9E72C3] transition-colors">
-              <div class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Large Pack</div>
-              <div class="font-serif text-2xl font-black text-[#170C0A] mt-1">$225</div>
-              <div class="text-[11px] text-cocoa-900 font-semibold mt-1">8 Dz + 6 Apples</div>
+            <!-- Large Pack Card -->
+            <div class="bg-[#FAF7FD] rounded-2xl p-5 border border-[#CFB5ED] shadow-sm flex flex-col justify-between hover:border-[#9E72C3] transition-all">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Large Party Pack</span>
+                  <span class="font-serif text-2xl font-black text-[#170C0A]">$225</span>
+                </div>
+                <p class="text-xs text-cocoa-800 mt-2 leading-relaxed">
+                  Includes 2 dz Rice Crispy Treats, 2 dz Oreos, 2 dz Pretzel Rods/Bows, 2 dz Marshmallows, & 6 Whole Apples.
+                </p>
+              </div>
+              <button onclick="addItemToActiveTicket('pack_large', 'Large Party Pack', 'Full Large Pack', 225)" class="mt-4 w-full py-2 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors">
+                + Add Large Pack ($225)
+              </button>
             </div>
 
-            <div class="bg-[#FAF7FD] rounded-2xl p-4 border border-[#CFB5ED] shadow-sm text-center hover:border-[#9E72C3] transition-colors">
-              <div class="text-xs font-bold uppercase tracking-wider text-cocoa-800">XL Pack</div>
-              <div class="font-serif text-2xl font-black text-[#170C0A] mt-1">$315</div>
-              <div class="text-[11px] text-cocoa-900 font-semibold mt-1">Pick 11 Dozen</div>
+            <!-- XL Pack Card -->
+            <div class="bg-[#FAF7FD] rounded-2xl p-5 border border-[#CFB5ED] shadow-sm flex flex-col justify-between hover:border-[#9E72C3] transition-all">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cocoa-800">XL Party Pack (11 Dz)</span>
+                  <span class="font-serif text-2xl font-black text-[#170C0A]">$315</span>
+                </div>
+                <p class="text-xs text-cocoa-800 mt-2 leading-relaxed">
+                  Pick any 11 dozen treats (Choice of Oreos, Marshmallows, Pretzel Rods/Bows, Rice Crispies, or Whole Apples).
+                </p>
+              </div>
+              <button onclick="addItemToActiveTicket('pack_xl', 'XL Party Pack (11 Dozen)', 'Full XL Pack', 315)" class="mt-4 w-full py-2 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors">
+                + Add XL Pack ($315)
+              </button>
             </div>
 
-            <div class="bg-[#FAF7FD] rounded-2xl p-4 border border-[#CFB5ED] shadow-sm text-center hover:border-[#9E72C3] transition-colors">
-              <div class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Ultimate Pack</div>
-              <div class="font-serif text-2xl font-black text-[#170C0A] mt-1">$380</div>
-              <div class="text-[11px] text-cocoa-900 font-semibold mt-1">Treats, Shooters & Cake</div>
+            <!-- Ultimate Pack Card -->
+            <div class="bg-[#FAF7FD] rounded-2xl p-5 border border-[#CFB5ED] shadow-sm flex flex-col justify-between hover:border-[#9E72C3] transition-all">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-cocoa-800">Ultimate Party Pack</span>
+                  <span class="font-serif text-2xl font-black text-[#170C0A]">$380</span>
+                </div>
+                <p class="text-xs text-cocoa-800 mt-2 leading-relaxed">
+                  1 dz Pretzels, 1 dz Rice Crispies, 1 dz Oreos, 3 dz Dessert Shooters, plus a 6" 3-Layer Custom Cake!
+                </p>
+              </div>
+              <button onclick="addItemToActiveTicket('pack_ultimate', 'Ultimate Party Pack', 'Full Ultimate Pack', 380)" class="mt-4 w-full py-2 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors">
+                + Add Ultimate Pack ($380)
+              </button>
             </div>
 
           </div>
 
-          <p class="text-xs text-[#170C0A] font-semibold mt-4 text-center sm:text-left flex items-center justify-center sm:justify-start gap-1.5">
+          <p class="text-xs text-[#170C0A] font-semibold mt-4 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-info text-[#9E72C3]"></i>
-            <span>Custom theme colors included with every package. (Strawberries are seasonal and not in base party packs).</span>
+            <span>Strawberries are seasonal and not in base party packs. Cake pops can be added for an additional fee.</span>
           </p>
         </div>
 
@@ -676,24 +1037,24 @@
     </div>
   </section>
 
-  <!-- Google Sheet-Powered Treats & Cakes Menu Section -->
+  <!-- SECTION 3: Google Sheet-Powered À La Carte Treats & Custom Cakes -->
   <section id="menu" class="py-16 lg:py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-10">
         <div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#7D4FA8] bg-[#F3EDFB] px-4 py-1.5 rounded-full mb-3 border border-[#E4D5F6]">
-          <i class="fa-solid fa-sparkles text-[#9E72C3]"></i> Live Menu & Offerings
+          <i class="fa-solid fa-sparkles text-[#9E72C3]"></i> Live Bakery Menu
         </div>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cocoa-950">
-          Treats, Cakes & Package Menu
+          À La Carte Treats & Cakes
         </h2>
         <p class="text-cocoa-800 text-sm sm:text-base mt-2">
-          Browse our freshly prepared sweets and custom cakes. Prices and availability sync directly with Butterfly Bliss Bakery's Google Sheet.
+          Browse individual dipped sweets, gourmet cheesecakes, puddings, and custom tiered/heart cakes. Prices sync directly with Butterfly Bliss Bakery's Google Sheet.
         </p>
       </div>
 
       <!-- Category Filter Tabs Container -->
-      <div class="w-full overflow-x-auto pb-4 mb-10 custom-scrollbar">
+      <div class="w-full overflow-x-auto pb-4 mb-8 custom-scrollbar">
         <div id="categoryTabsContainer" class="flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-2 min-w-max md:min-w-0 px-2 sm:px-4">
           <!-- Dynamically rendered based on Sheet categories -->
         </div>
@@ -709,7 +1070,7 @@
     </div>
   </section>
 
-  <!-- Flavors, Fillings & Kids Decorating Parties Guide -->
+  <!-- Flavors, Fillings & Mobile Kids Decorating Parties Guide -->
   <section id="flavors" class="py-16 lg:py-20 bg-white border-y border-[#E4D5F6]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -744,7 +1105,7 @@
           <div class="space-y-2 text-xs sm:text-sm text-cocoa-900 leading-relaxed">
             <p><strong>Specialty Fillings (+$5):</strong> Cookie Butter, Fresh Strawberry Compote, or Oreo n' Cream.</p>
             <p><strong>Cake Finishes:</strong> Rich Chocolate/Tinted Drip (+$2), Edible Image Prints (+$18), Custom Acrylic/Cardstock Toppers (+$25).</p>
-            <p><strong>Treat Crunch Toppings:</strong> Strawberry Crunch, Oreo, or Sweet Cereal Crumbles ($6/dozen).</p>
+            <p><strong>Wedding Services:</strong> Venue Delivery & Setup (+$50), Complete Display Stands Rental (+$75).</p>
           </div>
         </div>
 
@@ -755,7 +1116,7 @@
           <h3 class="font-serif text-xl font-bold text-cocoa-950">Kids Cake Decorating Parties</h3>
           <div class="space-y-2 text-xs sm:text-sm text-cocoa-900 leading-relaxed">
             <p><strong>We come to you!</strong> Complete interactive decorating party setup for 5–30 kids ($250–$325).</p>
-            <p><strong>Includes:</strong> Take-home aprons, custom theme toppers, turntables to decorate, 1 edible image per child, and a 6" cake (Vanilla or Chocolate; Heart or Circle) for each kid to take home!</p>
+            <p><strong>Includes:</strong> Take-home aprons, custom theme toppers, turntables to decorate, 1 edible image per child, and a 6" cake per child.</p>
             <p class="text-[11px] text-[#7D4FA8] font-extrabold">⚠️ Must book at least 1 month in advance.</p>
           </div>
         </div>
@@ -769,19 +1130,21 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-[#7D4FA8] bg-[#F3EDFB] px-3.5 py-1.5 rounded-full border border-[#E4D5F6]">Custom Booking & Estimates</span>
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#7D4FA8] bg-[#F3EDFB] px-3.5 py-1.5 rounded-full border border-[#E4D5F6]">
+          Custom Booking & Estimates
+        </span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cocoa-950 mt-3">
           Book Your Custom Order
         </h2>
         <p class="text-cocoa-800 text-sm sm:text-base mt-2">
-          Select your treats or cakes, choose your flavors and theme colors, and receive an instant estimated quote.
+          Select your treats or packages, customize flavors and theme colors, and receive an instant estimated quote.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
-        <!-- Left 7 Cols: Free Web3Forms Booking Form -->
-        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[#E4D5F6] shadow-xl space-y-8">
+        <!-- Left 7 Cols: Order Form -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[#CFB5ED] shadow-xl space-y-8">
           
           <form id="customTreatsForm" name="treats-booking" method="POST" onsubmit="handleOrderSubmit(event)">
             
@@ -795,68 +1158,86 @@
             <!-- Step 1: Event & Contact Details -->
             <div>
               <div class="flex items-center gap-2 pb-3 mb-4 border-b border-[#F3EDFB]">
-                <span class="w-6 h-6 rounded-full bg-[#9E72C3] text-white font-bold text-xs flex items-center justify-center">1</span>
+                <span class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white font-black text-xs flex items-center justify-center">1</span>
                 <h3 class="font-serif text-lg font-bold text-cocoa-950">Your Contact & Event Details</h3>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Full Name *</label>
-                  <input type="text" name="customer_name" id="custName" required placeholder="e.g. Jessica Smith" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] focus:ring-2 focus:ring-[#F3EDFB] outline-none text-sm">
+                  <input type="text" name="customer_name" id="custName" required placeholder="e.g. Jessica Smith" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Phone Number (SMS Confirmation) *</label>
-                  <input type="tel" name="customer_phone" id="custPhone" required placeholder="(309) 415-9636" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] focus:ring-2 focus:ring-[#F3EDFB] outline-none text-sm">
+                  <input type="tel" name="customer_phone" id="custPhone" required placeholder="(309) 415-9636" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Email Address *</label>
-                  <input type="email" name="customer_email" id="custEmail" required placeholder="jessica@example.com" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] focus:ring-2 focus:ring-[#F3EDFB] outline-none text-sm">
+                  <input type="email" name="customer_email" id="custEmail" required placeholder="jessica@example.com" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Event Date Needed *</label>
-                  <input type="date" name="event_date" id="custDate" required class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] focus:ring-2 focus:ring-[#F3EDFB] outline-none text-sm bg-white">
+                  <input type="date" name="event_date" id="custDate" required class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm bg-white">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Requested Pickup Time (9am-5pm)</label>
-                  <input type="text" name="pickup_time" id="custPickupTime" placeholder="e.g. 11:30 AM (or note later time)" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] focus:ring-2 focus:ring-[#F3EDFB] outline-none text-sm">
+                  <input type="text" name="pickup_time" id="custPickupTime" placeholder="e.g. 11:30 AM (or note later time)" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Occasion / Event Type</label>
-                  <select name="occasion_type" id="custEvent" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] focus:ring-2 focus:ring-[#F3EDFB] outline-none text-sm bg-white">
-                    <option value="Birthday Party">Birthday Party</option>
-                    <option value="Kids Cake Decorating Party">Kids Cake Decorating Party (Mobile)</option>
-                    <option value="Baby Shower / Gender Reveal">Baby Shower / Gender Reveal</option>
-                    <option value="Wedding / Bridal Shower">Wedding / Bridal Shower</option>
-                    <option value="Anniversary / Milestone">Anniversary / Milestone</option>
-                    <option value="Custom Treat Gift Box">Custom Treat Gift Box</option>
+                  <select name="occasion_type" id="custEvent" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm bg-white">
+                    <option value="Wedding / Bridal Shower">Wedding / Bridal Shower 💍</option>
+                    <option value="Birthday Party Pack">Birthday Party Pack 🎉</option>
+                    <option value="Custom Cake / Bento">Custom Cake / Bento 🎂</option>
+                    <option value="Kids Cake Decorating Party">Kids Cake Decorating Party (Mobile) 🎨</option>
+                    <option value="Baby Shower / Gender Reveal">Baby Shower / Gender Reveal 🍼</option>
+                    <option value="Holiday / Gourmet Treats">Holiday / Gourmet Treats 🍓</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            <!-- Step 2: Choose Custom Treats, Cakes & Packs -->
+            <!-- Step 2: Streamlined Order Ticket Builder -->
             <div class="pt-6">
-              <div class="flex items-center gap-2 pb-3 mb-4 border-b border-[#F3EDFB]">
-                <span class="w-6 h-6 rounded-full bg-[#9E72C3] text-white font-bold text-xs flex items-center justify-center">2</span>
-                <h3 class="font-serif text-lg font-bold text-cocoa-950">Choose Your Treats, Cakes & Packages</h3>
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#F3EDFB]">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white font-black text-xs flex items-center justify-center">2</span>
+                  <h3 class="font-serif text-lg font-bold text-cocoa-950">Your Selected Order Items</h3>
+                </div>
+                <span class="text-xs text-[#7D4FA8] font-bold" id="itemCountLabel">0 items selected</span>
               </div>
 
-              <div class="space-y-3 max-h-96 overflow-y-auto pr-1 custom-scrollbar" id="calculatorSelectorsContainer">
-                <!-- Dynamically populated from Google Sheet menu data -->
+              <!-- Active Item Cards Container -->
+              <div id="activeTicketItemsContainer" class="space-y-2.5">
+                <!-- Dynamically rendered active items -->
+              </div>
+
+              <!-- Quick Add From Dropdown -->
+              <div class="mt-4 p-4 rounded-2xl bg-[#FAF7FD] border border-[#CFB5ED] flex flex-col sm:flex-row items-center gap-3">
+                <div class="w-full sm:w-2/3">
+                  <label class="block text-[11px] font-bold text-cocoa-950 uppercase tracking-wider mb-1">Add Another Treat or Package:</label>
+                  <select id="quickItemSelector" class="w-full px-3 py-2 text-xs rounded-xl border border-[#CFB5ED] bg-white outline-none focus:border-[#7D4FA8]">
+                    <option value="">-- Choose item from menu --</option>
+                  </select>
+                </div>
+                <button type="button" onclick="handleAddFromDropdown()" class="w-full sm:w-1/3 mt-auto py-2.5 px-4 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+                  <i class="fa-solid fa-plus text-[10px]"></i>
+                  <span>Add To Quote</span>
+                </button>
               </div>
             </div>
 
             <!-- Step 3: Flavors, Fillings & Theme Customization -->
             <div class="pt-6">
               <div class="flex items-center gap-2 pb-3 mb-4 border-b border-[#F3EDFB]">
-                <span class="w-6 h-6 rounded-full bg-[#9E72C3] text-white font-bold text-xs flex items-center justify-center">3</span>
+                <span class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white font-black text-xs flex items-center justify-center">3</span>
                 <h3 class="font-serif text-lg font-bold text-cocoa-950">Flavors, Fillings & Personalization</h3>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Cake Flavor (If ordering cake/cupcakes)</label>
-                  <select name="cake_flavor" id="cakeFlavorSelect" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] outline-none text-xs bg-white">
+                  <select name="cake_flavor" id="cakeFlavorSelect" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-xs bg-white">
                     <option value="N/A - Treats Only">N/A - Treats Only</option>
                     <option value="Vanilla">Vanilla</option>
                     <option value="Chocolate">Chocolate</option>
@@ -870,7 +1251,7 @@
 
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Cake Filling (+ $5.00)</label>
-                  <select name="cake_filling" id="cakeFillingSelect" onchange="updateLiveEstimate()" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] outline-none text-xs bg-white">
+                  <select name="cake_filling" id="cakeFillingSelect" onchange="updateLiveEstimate()" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-xs bg-white">
                     <option value="None" data-price="0">No Filling (Standard Buttercream)</option>
                     <option value="Cookie Butter" data-price="5">Cookie Butter Filling (+$5.00)</option>
                     <option value="Strawberry Compote" data-price="5">Strawberry Compote Filling (+$5.00)</option>
@@ -880,29 +1261,46 @@
 
                 <div class="sm:col-span-2">
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Theme Colors & Design Vision *</label>
-                  <input type="text" name="theme_colors" id="custTheme" placeholder="e.g. Lavender Violet, Soft Lilac & Silver Butterfly accents" class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] outline-none text-sm">
+                  <input type="text" name="theme_colors" id="custTheme" placeholder="e.g. Lavender, Sage Green, and Gold Butterfly accents" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-sm">
                 </div>
               </div>
 
               <!-- Add-Ons Checkboxes -->
               <div class="space-y-3 pt-2">
-                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#E4D5F6] hover:bg-[#FAF7FD]/50 cursor-pointer">
-                  <input type="checkbox" name="addon_wording_check" id="addon_wording" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#9E72C3] focus:ring-[#CFB5ED]">
+                
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                  <input type="checkbox" name="addon_setup_check" id="addon_setup" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
                   <div class="text-xs">
-                    <span class="font-bold text-cocoa-950">Custom Treat Chocolate Lettering (+$5.00)</span>
-                    <p class="text-cocoa-800">Personalized molded chocolate alphabet letters on treats (e.g., "BABY BOY", "SWEET 16", initials).</p>
+                    <span class="font-bold text-cocoa-950">Wedding / Event On-Site Delivery & Setup (+ $50.00)</span>
+                    <p class="text-cocoa-800/80">We deliver directly to your venue, professionally unpack, and arrange your table.</p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                  <input type="checkbox" name="addon_stands_check" id="addon_stands" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                  <div class="text-xs">
+                    <span class="font-bold text-cocoa-950">Display Stands & Risers Rental (+ $75.00)</span>
+                    <p class="text-cocoa-800/80">Bakery provides matching tiered cake pedestals, dessert risers, and decorative platters.</p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                  <input type="checkbox" name="addon_wording_check" id="addon_wording" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                  <div class="text-xs">
+                    <span class="font-bold text-cocoa-950">Custom Treat Chocolate Lettering (+ $5.00)</span>
+                    <p class="text-cocoa-800/80">Personalized molded chocolate alphabet blocks (e.g., "BABY BOY", "SWEET 16", initials).</p>
                   </div>
                 </label>
 
                 <div id="wording_input_container" class="hidden pl-7">
-                  <input type="text" name="addon_wording_text" id="custWordingText" placeholder="Specify exact letters/text (e.g. BABY BOY)" class="w-full px-3 py-2 text-xs rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] outline-none">
+                  <input type="text" name="addon_wording_text" id="custWordingText" placeholder="Specify exact letters/text (e.g. BABY BOY)" class="w-full px-3 py-2 text-xs rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none">
                 </div>
 
-                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#E4D5F6] hover:bg-[#FAF7FD]/50 cursor-pointer">
-                  <input type="checkbox" name="addon_cereal_check" id="addon_cereal" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#9E72C3] focus:ring-[#CFB5ED]">
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                  <input type="checkbox" name="addon_cereal_check" id="addon_cereal" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
                   <div class="text-xs">
-                    <span class="font-bold text-cocoa-950">Specialty Crunch / Cereal Crumbles (+$6.00 per dozen)</span>
-                    <p class="text-cocoa-800">Choice of Strawberry Shortcake Crunch, Oreo Crumble, or Fruity Pebbles.</p>
+                    <span class="font-bold text-cocoa-950">Specialty Crunch / Cereal Crumbles (+ $6.00 per dozen)</span>
+                    <p class="text-cocoa-800/80">Strawberry Shortcake Crunch, Oreo Crumble, or Fruity Pebbles.</p>
                   </div>
                 </label>
               </div>
@@ -912,27 +1310,27 @@
                 <label class="block text-xs font-bold text-cocoa-900">
                   Inspiration Photos & Special Instructions:
                 </label>
-                <div class="p-3.5 bg-[#FAF7FD] rounded-2xl border border-[#E4D5F6] text-xs text-[#351C52] flex items-start gap-2.5">
-                  <i class="fa-solid fa-camera text-[#9E72C3] mt-0.5 text-sm"></i>
-                  <span><strong>Please attach/send inspiration photos!</strong> You can paste photo links (Pinterest/Google Drive/Imgur) below, or text them directly to <strong>(309) 415-9636</strong> after submitting!</span>
+                <div class="p-3 bg-[#FAF7FD] rounded-2xl border border-[#CFB5ED] text-xs text-cocoa-900 flex items-start gap-2">
+                  <i class="fa-solid fa-camera text-[#7D4FA8] mt-0.5"></i>
+                  <span><strong>Attach your inspiration photos!</strong> Paste links below, or text them directly to <strong>(309) 415-9636</strong> after submitting!</span>
                 </div>
-                <textarea name="design_notes" id="custNotes" rows="3" placeholder="Paste inspiration photo links here, or describe cake text, ribbon color, dietary allergies, or pickup notes..." class="w-full px-4 py-2.5 rounded-xl border border-[#E4D5F6] focus:border-[#9E72C3] outline-none text-xs"></textarea>
+                <textarea name="design_notes" id="custNotes" rows="3" placeholder="Paste photo links (Pinterest/Drive/Imgur), dietary needs, requested lettering, or delivery instructions..." class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-xs"></textarea>
               </div>
             </div>
 
             <!-- Submit Buttons -->
             <div class="pt-6 space-y-3">
-              <button type="submit" id="submitBtn" class="w-full py-4 rounded-2xl bg-[#7D4FA8] hover:bg-[#643A89] text-white font-bold text-base shadow-lg shadow-[#7D4FA8]/25 transition-all flex items-center justify-center gap-2">
+              <button type="submit" id="submitBtn" class="w-full py-4 rounded-2xl bg-gradient-to-r from-[#7D4FA8] via-[#9E72C3] to-blush-500 hover:opacity-95 text-white font-bold text-base shadow-lg shadow-[#9E72C3]/30 transition-all flex items-center justify-center gap-2">
                 <i class="fa-solid fa-paper-plane"></i>
                 <span id="submitBtnText">Submit Custom Booking Request</span>
               </button>
 
-              <button type="button" onclick="sendOrderViaSMS()" class="w-full py-3 rounded-2xl bg-white hover:bg-[#FAF7FD] border border-[#CFB5ED] text-cocoa-950 font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2">
+              <button type="button" onclick="sendOrderViaSMS()" class="w-full py-3 rounded-2xl bg-white hover:bg-[#FAF7FD] border border-[#CFB5ED] text-cocoa-900 font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2">
                 <i class="fa-solid fa-comment-sms text-emerald-600"></i>
                 <span>Or Text Order Directly to Bakery (309-415-9636)</span>
               </button>
 
-              <p class="text-center text-[11px] text-cocoa-800 font-medium mt-2">
+              <p class="text-center text-[11px] text-cocoa-800/70 mt-2">
                 🔒 All sales are final. Orders over $60 require a 50% deposit to lock in your date. Orders $60 and under must be paid in full upon booking.
               </p>
             </div>
@@ -940,26 +1338,26 @@
           </form>
         </div>
 
-        <!-- Right 5 Cols: Live Estimated Quote Summary Card -->
+        <!-- Right 5 Cols: Sticky Estimate Ticket -->
         <div class="lg:col-span-5 sticky top-28 space-y-6">
-          <div class="bg-gradient-to-br from-cocoa-950 via-[#351C52] to-cocoa-950 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#643A89]/60">
+          <div class="bg-gradient-to-br from-cocoa-950 via-cocoa-900 to-[#3C1E5C] text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/10">
             <div class="flex items-center justify-between pb-4 border-b border-white/10">
               <div>
-                <span class="text-[10px] uppercase tracking-widest text-[#CFB5ED] font-extrabold">Dynamic Calculator</span>
+                <span class="text-[10px] uppercase tracking-widest text-[#CFB5ED] font-bold">Dynamic Calculator</span>
                 <h3 class="font-serif text-xl font-bold">Estimated Order Total</h3>
               </div>
-              <span class="p-2.5 rounded-xl bg-white/10 text-amber-300">
+              <span class="p-2 rounded-xl bg-white/10 text-amber-300">
                 <i class="fa-solid fa-receipt text-lg"></i>
               </span>
             </div>
 
             <!-- Selected Items List -->
             <div class="py-4 space-y-2.5 text-xs border-b border-white/10 max-h-56 overflow-y-auto custom-scrollbar" id="summaryItemsList">
-              <!-- Populated by updateLiveEstimate() -->
+              <div class="text-white/50 italic">No items in your quote yet. Pick items from the menu or packages above.</div>
             </div>
 
             <!-- Pricing Breakdown -->
-            <div class="pt-4 space-y-2 text-xs text-white/90">
+            <div class="pt-4 space-y-2 text-xs text-white/80">
               <div class="flex justify-between items-center">
                 <span>Estimated Subtotal</span>
                 <span class="font-bold text-white text-sm" id="calcSubtotal">$0.00</span>
@@ -968,7 +1366,7 @@
                 <span id="depositLabel">Deposit Required</span>
                 <span class="font-bold" id="calcDeposit">$0.00</span>
               </div>
-              <p class="text-[10px] text-white/70 italic" id="depositPolicyNote">
+              <p class="text-[10px] text-white/60 italic" id="depositPolicyNote">
                 *Orders over $60 require a 50% deposit; orders under $60 must be paid in full.
               </p>
             </div>
@@ -976,10 +1374,10 @@
             <!-- Total Banner -->
             <div class="mt-6 pt-4 border-t border-white/20 flex justify-between items-baseline">
               <div>
-                <div class="text-xs text-white/70">Estimated Total</div>
+                <div class="text-xs text-white/60">Estimated Total</div>
                 <div class="text-2xl sm:text-3xl font-serif font-extrabold text-white" id="calcTotal">$0.00</div>
               </div>
-              <span class="text-[11px] font-bold bg-[#9E72C3]/30 text-[#E4D5F6] px-3 py-1 rounded-full border border-[#B892DC]/40">
+              <span class="text-[11px] font-semibold bg-[#9E72C3]/30 text-[#CFB5ED] px-3 py-1 rounded-full border border-[#B892DC]/30">
                 Peoria, IL
               </span>
             </div>
@@ -989,11 +1387,11 @@
               <span class="font-bold text-amber-200 flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
                 <i class="fa-solid fa-wallet"></i> Deposit Payment Methods
               </span>
-              <div class="flex justify-between text-white/90">
+              <div class="flex justify-between text-white/80">
                 <span>Apple Pay:</span>
                 <span class="font-bold text-white">309-415-9636</span>
               </div>
-              <div class="flex justify-between text-white/90">
+              <div class="flex justify-between text-white/80">
                 <span>Cash App:</span>
                 <span class="font-bold text-emerald-400">$KiyYoung2</span>
               </div>
@@ -1001,23 +1399,23 @@
           </div>
 
           <!-- Customer Service Card -->
-          <div class="bg-white rounded-3xl p-6 border border-[#E4D5F6] shadow-sm space-y-3">
+          <div class="bg-white rounded-3xl p-6 border border-[#CFB5ED] shadow-sm space-y-3">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-xl bg-[#F3EDFB] text-[#7D4FA8] flex items-center justify-center font-bold">
                 <i class="fa-solid fa-clock"></i>
               </div>
               <div>
                 <h4 class="font-bold text-xs text-cocoa-950 uppercase tracking-wide">Pickup Hours</h4>
-                <p class="text-xs text-cocoa-800">9:00 AM – 5:00 PM (note in booking if later is needed).</p>
+                <p class="text-xs text-cocoa-800/70">9:00 AM – 5:00 PM (note in booking if later is needed).</p>
               </div>
             </div>
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-blush-100 text-blush-500 flex items-center justify-center font-bold">
-                <i class="fa-solid fa-shield-heart"></i>
+              <div class="w-10 h-10 rounded-xl bg-purple-50 text-[#7D4FA8] flex items-center justify-center font-bold">
+                <i class="fa-solid fa-ring"></i>
               </div>
               <div>
-                <h4 class="font-bold text-xs text-cocoa-950 uppercase tracking-wide">All Sales Final</h4>
-                <p class="text-xs text-cocoa-800">Handcrafted fresh to order specifically for your celebration.</p>
+                <h4 class="font-bold text-xs text-cocoa-950 uppercase tracking-wide">Wedding Lead Time</h4>
+                <p class="text-xs text-cocoa-800/70">Book at least 1–2 months in advance for weddings.</p>
               </div>
             </div>
           </div>
@@ -1029,10 +1427,10 @@
   </section>
 
   <!-- Policies & FAQ Section -->
-  <section id="policy" class="py-16 lg:py-20 bg-white border-t border-[#E4D5F6]">
+  <section id="policy" class="py-20 lg:py-24 bg-white border-t border-[#E4D5F6]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="text-center max-w-2xl mx-auto mb-12">
         <span class="text-xs font-extrabold uppercase tracking-widest text-[#7D4FA8] bg-[#F3EDFB] px-3.5 py-1.5 rounded-full border border-[#E4D5F6]">Bakery Guidelines</span>
         <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-cocoa-950 mt-3">
           Ordering Policies & FAQ
@@ -1040,42 +1438,42 @@
       </div>
 
       <div class="space-y-4">
-        <div class="bg-cream rounded-2xl border border-[#E4D5F6] overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD]/50 transition-colors">
+        <div class="bg-cream rounded-2xl border border-[#CFB5ED] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD] transition-colors">
             <span>What are your deposit and payment terms?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-[#9E72C3] transition-transform"></i>
+            <i class="fa-solid fa-chevron-down text-xs text-[#7D4FA8] transition-transform"></i>
           </button>
-          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-900 border-t border-[#F3EDFB] leading-relaxed">
+          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-800 leading-relaxed border-t border-[#F3EDFB]">
             All sales are final. When placing orders, payment must be made in full upfront unless your total order is greater than <strong>$60</strong>. Orders over $60 require a <strong>50% deposit</strong> to secure the calendar date, with the balance due before pickup. Deposits can be sent via Apple Pay (<strong>309-415-9636</strong>) or Cash App (<strong>$KiyYoung2</strong>).
           </div>
         </div>
 
-        <div class="bg-cream rounded-2xl border border-[#E4D5F6] overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD]/50 transition-colors">
-            <span>What are your pickup hours and location?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-[#9E72C3] transition-transform"></i>
+        <div class="bg-cream rounded-2xl border border-[#CFB5ED] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD] transition-colors">
+            <span>How far in advance should I book?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-[#7D4FA8] transition-transform"></i>
           </button>
-          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-900 border-t border-[#F3EDFB] leading-relaxed">
+          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-800 leading-relaxed border-t border-[#F3EDFB]">
+            Custom cakes, treat boxes, and party packs should be booked at least <strong>1 to 2 weeks in advance</strong>. For <strong>Weddings</strong>, please book at least <strong>1–2 months in advance</strong>. For <strong>Kids Cake Decorating Parties</strong>, you must book <strong>at least 1 month in advance</strong>.
+          </div>
+        </div>
+
+        <div class="bg-cream rounded-2xl border border-[#CFB5ED] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD] transition-colors">
+            <span>What are your pickup hours and location?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-[#7D4FA8] transition-transform"></i>
+          </button>
+          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-800 leading-relaxed border-t border-[#F3EDFB]">
             Standard order pickup hours are between <strong>9:00 AM and 5:00 PM</strong> in Peoria, IL. If you need a later pickup time outside of these hours, please note your requested time in the order description when booking.
           </div>
         </div>
 
-        <div class="bg-cream rounded-2xl border border-[#E4D5F6] overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD]/50 transition-colors">
-            <span>How far in advance should I book?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-[#9E72C3] transition-transform"></i>
-          </button>
-          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-900 border-t border-[#F3EDFB] leading-relaxed">
-            Custom cakes, treat boxes, and party packs should be booked at least <strong>1 to 2 weeks in advance</strong>. For <strong>Kids Cake Decorating Birthday Parties</strong>, you must book <strong>at least 1 month in advance</strong> so supplies, custom toppers, and aprons can be prepared!
-          </div>
-        </div>
-
-        <div class="bg-cream rounded-2xl border border-[#E4D5F6] overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD]/50 transition-colors">
+        <div class="bg-cream rounded-2xl border border-[#CFB5ED] overflow-hidden shadow-xs">
+          <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-sm sm:text-base text-cocoa-950 flex justify-between items-center hover:bg-[#FAF7FD] transition-colors">
             <span>How do I send inspiration photos?</span>
-            <i class="fa-solid fa-chevron-down text-xs text-[#9E72C3] transition-transform"></i>
+            <i class="fa-solid fa-chevron-down text-xs text-[#7D4FA8] transition-transform"></i>
           </button>
-          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-900 border-t border-[#F3EDFB] leading-relaxed">
+          <div class="hidden p-5 pt-0 text-xs sm:text-sm text-cocoa-800 leading-relaxed border-t border-[#F3EDFB]">
             You can paste links to your Pinterest pins, Instagram posts, or Google Drive in the booking form, or text your photos directly to our bakery line at <strong>(309) 415-9636</strong> after submitting the form.
           </div>
         </div>
@@ -1084,20 +1482,19 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-cocoa-950 text-white pt-14 pb-12 border-t border-[#351C52]">
+  <footer class="bg-cocoa-950 text-white pt-16 pb-12 border-t border-cocoa-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        
         <!-- Col 1 -->
         <div class="md:col-span-5 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#9E72C3] to-blush-400 flex items-center justify-center text-white text-xl shadow-md">
-              🦋
-            </div>
-            <span class="font-serif text-2xl font-bold tracking-tight text-white">Butterfly Bliss</span>
+            <span class="text-3xl">🦋</span>
+            <span class="font-serif text-2xl font-bold tracking-tight text-white">Butterfly Bliss Bakery N' More</span>
           </div>
-          <p class="text-xs sm:text-sm text-white/80 max-w-sm leading-relaxed">
-            Butterfly Bliss Bakery N' More — Handcrafted gourmet custom cakes, dessert party packs, cheesecakes, and mobile kids decorating parties in Peoria, Illinois.
+          <p class="text-xs sm:text-sm text-white/70 max-w-sm leading-relaxed">
+            Handcrafted custom wedding cakes, dessert table packages, birthday party packs, gourmet cheesecakes, and mobile decorating parties in Peoria, Illinois.
           </p>
           <div class="flex items-center gap-3 pt-2">
             <a href="https://www.facebook.com/profile.php?id=61591907823805" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D4FA8] flex items-center justify-center transition-colors text-white text-sm" title="Facebook">
@@ -1105,6 +1502,9 @@
             </a>
             <a href="https://www.tiktok.com/@butterfly.bliss.b0?lang=en" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D4FA8] flex items-center justify-center transition-colors text-white text-sm" title="TikTok">
               <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="mailto:Butterflyblissbakerynmore@gmail.com" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D4FA8] flex items-center justify-center transition-colors text-white text-sm" title="Email Us">
+              <i class="fa-solid fa-envelope"></i>
             </a>
             <a href="tel:3094159636" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#7D4FA8] flex items-center justify-center transition-colors text-white text-sm" title="Call or Text">
               <i class="fa-solid fa-phone"></i>
@@ -1115,27 +1515,31 @@
         <!-- Col 2 -->
         <div class="md:col-span-3 space-y-3">
           <h4 class="text-xs font-bold uppercase tracking-widest text-[#CFB5ED]">Quick Navigation</h4>
-          <ul class="space-y-2 text-xs text-white/80">
-            <li><a href="#tiktok-showcase" class="hover:text-white transition-colors">TikTok Reels</a></li>
-            <li><a href="#menu" class="hover:text-white transition-colors">Menu & Pricing</a></li>
+          <ul class="space-y-2 text-xs text-white/70">
+            <li><a href="#proof-hub" class="hover:text-white transition-colors">Reviews & Reels</a></li>
+            <li><a href="#wedding-packages" class="hover:text-white transition-colors">Wedding Packages</a></li>
             <li><a href="#party-packs" class="hover:text-white transition-colors">Party Packs</a></li>
-            <li><a href="#flavors" class="hover:text-white transition-colors">Flavors & Fillings</a></li>
-            <li><a href="#booking" class="hover:text-white transition-colors">Book Custom Order</a></li>
-            <li><a href="#policy" class="hover:text-white transition-colors">Bakery Policies</a></li>
+            <li><a href="#menu" class="hover:text-white transition-colors">À La Carte Menu</a></li>
+            <li><a href="#flavors" class="hover:text-white transition-colors">Flavors & Parties</a></li>
+            <li><a href="#booking" class="hover:text-white transition-colors">Order / Quote</a></li>
           </ul>
         </div>
 
         <!-- Col 3 -->
         <div class="md:col-span-4 space-y-3">
           <h4 class="text-xs font-bold uppercase tracking-widest text-[#CFB5ED]">Location & Ordering</h4>
-          <div class="space-y-2.5 text-xs text-white/80">
+          <div class="space-y-2.5 text-xs text-white/70">
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-location-dot text-[#B892DC]"></i>
               <span>Peoria, Illinois • Pickup Hours: 9am – 5pm</span>
             </div>
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-phone text-[#B892DC]"></i>
-              <a href="tel:3094159636" class="hover:underline font-bold text-white">(309) 415-9636 (Call or Text)</a>
+              <a href="tel:3094159636" class="hover:underline">(309) 415-9636 (Call or Text)</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-[#B892DC]"></i>
+              <a href="mailto:Butterflyblissbakerynmore@gmail.com" class="hover:underline">Butterflyblissbakerynmore@gmail.com</a>
             </div>
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-wallet text-[#B892DC]"></i>
@@ -1145,53 +1549,41 @@
         </div>
       </div>
 
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
         <p>© 2026 Butterfly Bliss Bakery N' More. Handcrafted in Peoria, IL. All rights reserved.</p>
-        <p class="flex items-center gap-1">Crafted with <span class="text-[#B892DC]">♥</span> for Sweet Celebrations</p>
+        <p class="flex items-center gap-1">Crafted with <span class="text-pink-400">♥</span> for Sweet Celebrations</p>
       </div>
 
     </div>
   </footer>
 
-  <!-- TikTok Reel Modal Lightbox -->
-  <div id="tiktokReelModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeTikTokModal(event)">
-    <div class="bg-white rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl border border-[#CFB5ED] transform transition-all text-cocoa-950" onclick="event.stopPropagation()">
-      <div class="relative bg-cocoa-950 aspect-[4/5] overflow-hidden">
-        <img id="tiktokModalImg" src="" alt="TikTok Thumbnail" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-        
-        <button onclick="closeTikTokModal()" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors z-20">
-          <i class="fa-solid fa-xmark text-sm"></i>
-        </button>
-
-        <div class="absolute bottom-4 left-4 right-4 text-white z-10 space-y-1">
-          <span class="inline-flex items-center gap-1 text-[10px] font-bold text-[#CFB5ED] uppercase tracking-wider">
-            <i class="fa-brands fa-tiktok text-pink-400"></i> Official TikTok Post
-          </span>
-          <h4 class="font-serif text-lg font-bold leading-tight" id="tiktokModalTitle">-</h4>
-        </div>
+  <!-- Lightbox Modal for TikTok Video Reels -->
+  <div id="tiktokModal" class="fixed inset-0 z-50 bg-cocoa-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-[#CFB5ED] text-center space-y-4">
+      <div class="w-12 h-12 rounded-2xl bg-cocoa-950 text-white flex items-center justify-center mx-auto text-xl">
+        <i class="fa-brands fa-tiktok text-pink-400"></i>
       </div>
+      <h3 class="font-serif text-xl font-bold text-cocoa-950" id="ttModalTitle">TikTok Reel</h3>
+      <p class="text-xs text-cocoa-800 leading-relaxed" id="ttModalDesc">
+        Watch this custom creation in action on our official TikTok!
+      </p>
 
-      <div class="p-4 space-y-3">
-        <p class="text-xs text-cocoa-800 leading-relaxed" id="tiktokModalDesc">-</p>
-        
-        <div class="pt-1 flex flex-col gap-2">
-          <a id="tiktokModalDirectLink" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-black hover:bg-[#7D4FA8] text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors">
-            <i class="fa-brands fa-tiktok text-sm"></i>
-            <span>Watch Full Video on TikTok</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
-          </a>
-          <a href="#booking" onclick="closeTikTokModal()" class="w-full py-2 rounded-xl bg-[#FAF7FD] hover:bg-[#F3EDFB] text-[#7D4FA8] border border-[#CFB5ED] font-bold text-xs text-center transition-colors">
-            Request Similar Style in Quote &rarr;
-          </a>
-        </div>
+      <div class="space-y-2 pt-2">
+        <a id="ttModalLink" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors">
+          <i class="fa-brands fa-tiktok text-pink-400"></i>
+          <span>Watch Full Video on TikTok App</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+        <button onclick="closeTikTokModal()" class="w-full py-2.5 rounded-xl bg-cream hover:bg-[#FAF7FD] text-cocoa-900 border border-[#CFB5ED] text-xs font-bold transition-colors">
+          Close Preview
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Booking Success Modal -->
   <div id="bookingSuccessModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-[#E4D5F6] transform transition-all text-center space-y-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-brand-200 text-center space-y-4">
       <div class="w-16 h-16 rounded-full bg-[#F3EDFB] text-[#7D4FA8] flex items-center justify-center text-2xl mx-auto shadow-inner">
         🦋
       </div>
@@ -1200,7 +1592,7 @@
         Thank you! Your custom booking inquiry for <strong>Butterfly Bliss Bakery N' More</strong> has been successfully sent.
       </p>
 
-      <div class="bg-[#FAF7FD] p-4 rounded-2xl text-left text-xs space-y-1.5 border border-[#E4D5F6]">
+      <div class="bg-[#FAF7FD] p-4 rounded-2xl text-left text-xs space-y-1.5 border border-[#CFB5ED]">
         <div class="flex justify-between">
           <span class="text-cocoa-800">Client:</span>
           <span class="font-bold text-cocoa-950" id="modalClientName">-</span>
@@ -1219,8 +1611,8 @@
         </div>
       </div>
 
-      <div class="text-[11px] text-cocoa-900 bg-amber-50 p-3.5 rounded-xl border border-amber-200 text-left space-y-1">
-        <p class="font-bold text-amber-950">Next Steps:</p>
+      <div class="text-[11px] text-cocoa-800 bg-amber-50 p-3 rounded-xl border border-amber-200 text-left space-y-1">
+        <p class="font-bold text-amber-900">Next Steps:</p>
         <p>1. Please text your <strong>inspiration photos</strong> to <strong>(309) 415-9636</strong>.</p>
         <p>2. We will confirm your date availability and request the deposit via Apple Pay (309-415-9636) or Cash App ($KiyYoung2).</p>
       </div>
@@ -1231,59 +1623,21 @@
     </div>
   </div>
 
+  <!-- Cart Toast Banner -->
+  <div id="cartToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden glass-card px-5 py-3 rounded-full shadow-2xl border border-[#CFB5ED] flex items-center gap-3 text-xs font-bold text-cocoa-950 toast-enter">
+    <div class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white flex items-center justify-center text-[10px]">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <span id="cartToastText">Added to quote!</span>
+    <a href="#booking" class="text-[#7D4FA8] hover:underline underline-offset-2 ml-1">View Quote &rarr;</a>
+  </div>
+
   <script>
     // -------------------------------------------------------------
     // 1. GOOGLE SHEET DIRECT NATIVE API CONFIGURATION
     // -------------------------------------------------------------
     const GOOGLE_SHEET_ID = '1FgQSMyNhKR0ePho9XHdvlMjk9PzU1y3FCY2RT1MwvGI';
     const GOOGLE_SHEET_TAB_NAME = 'Menu';
-
-    function loadMenuFromGoogleSheet() {
-      const statusLabel = document.getElementById('cmsStatusLabel');
-      const syncDot = document.getElementById('syncDot');
-      const syncIcon = document.getElementById('syncIcon');
-
-      if (syncIcon) syncIcon.classList.add('fa-spin');
-      if (statusLabel) statusLabel.textContent = 'Syncing...';
-
-      const callbackName = 'gvizCallback_' + Math.round(Math.random() * 1000000);
-
-      window[callbackName] = function(gvizData) {
-        if (gvizData && gvizData.status === 'ok' && gvizData.table) {
-          const cols = gvizData.table.cols.map((col, idx) => {
-            const label = (col.label || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
-            return label || `col_${idx}`;
-          });
-
-          const parsedItems = gvizData.table.rows.map(row => {
-            const itemObj = {};
-            (row.c || []).forEach((cell, cIdx) => {
-              const key = cols[cIdx] || `col_${cIdx}`;
-              itemObj[key] = cell && cell.v !== null && cell.v !== undefined ? cell.v : '';
-            });
-            return itemObj;
-          });
-
-          processFetchedData(parsedItems);
-        } else {
-          useFallback('Invalid Google response format');
-        }
-
-        delete window[callbackName];
-        if (scriptTag && scriptTag.parentNode) scriptTag.parentNode.removeChild(scriptTag);
-      };
-
-      const scriptTag = document.createElement('script');
-      scriptTag.src = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json;responseHandler:${callbackName}&sheet=${encodeURIComponent(GOOGLE_SHEET_TAB_NAME)}&_t=${Date.now()}`;
-      
-      scriptTag.onerror = function() {
-        useFallback('Network error or CORS block');
-        delete window[callbackName];
-        if (scriptTag && scriptTag.parentNode) scriptTag.parentNode.removeChild(scriptTag);
-      };
-
-      document.body.appendChild(scriptTag);
-    }
 
     function sanitizeImageUrl(url) {
       if (!url || typeof url !== 'string') return '';
@@ -1304,6 +1658,7 @@
       return cleanUrl;
     }
 
+    // Default Treats & Cakes Menu Fallback
     const DEFAULT_TREATS_MENU = [
       {
         id: 'strawberries',
@@ -1324,22 +1679,48 @@
         category: 'Gourmet Treats',
         icon: '🧇',
         badge: 'Custom Wording',
-        desc: 'Individually wrapped Rice Krispies pops. Ideal for custom alphabet lettering (e.g. BABY BOY, names, or theme colors).',
+        desc: 'Individually wrapped Rice Krispies pops. Ideal for custom alphabet lettering (e.g. BABY BOY, names).',
         unit6: '6 Crispies',
         price6: 20,
         unit12: '12 Crispies',
         price12: 40,
+        img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=800&auto=format&fit=crop'
+      },
+      {
+        id: 'oreos',
+        name: 'Chocolate Covered Oreos',
+        category: 'Gourmet Treats',
+        icon: '🍪',
+        badge: 'Party Classic',
+        desc: 'Classic Oreo pucks encased in thick confectionery chocolate with rosettes, sprinkles, and themed decorations.',
+        unit6: '6 Oreos',
+        price6: 15,
+        unit12: '12 Oreos',
+        price12: 30,
+        img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop'
+      },
+      {
+        id: 'pretzel_rods',
+        name: 'Chocolate Pretzel Rods',
+        category: 'Pretzels & Sweets',
+        icon: '🥨',
+        badge: 'Caramel Option',
+        desc: 'Crunchy pretzel rods dipped in chocolate ($15/6, $30/12). Option to wrap in buttery caramel ($20/6, $40/12).',
+        unit6: '6 Pretzel Rods',
+        price6: 15,
+        unit12: '12 Pretzel Rods',
+        price12: 30,
         img: ''
       },
       {
-        id: 'pack_mini',
-        name: 'Mini Party Pack',
-        category: 'Party Packs',
-        icon: '🎁',
-        badge: 'Value Pack ($115)',
-        desc: 'Includes: 1 dz Rice Crispy Treats, 1 dz Pretzel Rods or Bows, and 1 dz Oreos. Custom theme colors included.',
-        unit6: 'Full Mini Pack',
-        price6: 115,
+        id: 'cheesecake_whole',
+        name: 'Whole Gourmet Cheesecake',
+        category: 'Cheesecakes & Puddings',
+        icon: '🧀',
+        badge: 'Full Cake ($30)',
+        desc: 'Full 9-inch gourmet cheesecake. Choice of Cherry, Strawberry, Oreo, Biscoff, Peach Cobbler, Fruity Pebbles, or Banana Pudding.',
+        unit6: 'Whole Cheesecake',
+        price6: 30,
         unit12: '',
         price12: 0,
         img: ''
@@ -1362,72 +1743,164 @@
     let TREATS_MENU_DATA = [...DEFAULT_TREATS_MENU];
     let currentActiveCategory = 'all';
 
-    function processFetchedData(parsedItems) {
+    // Active Cart Ticket Items
+    let ACTIVE_TICKET_ITEMS = [];
+
+    // Client's Official TikTok Videos List
+    const CLIENT_TIKTOK_VIDEOS = [
+      {
+        id: '7648739014681414925',
+        title: 'Henny Cake',
+        desc: 'Custom Hennessy celebration bottle drip cake with premium accents!',
+        tag: 'Custom Cake',
+        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7648739014681414925'
+      },
+      {
+        id: '7672129970357030157',
+        title: 'Angel & Stitch Cake',
+        desc: 'Adorable Angel & Stitch character birthday cake with pastel piping!',
+        tag: 'Character Cake',
+        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7672129970357030157'
+      },
+      {
+        id: '7619469465029332238',
+        title: 'Cocomelon Treats',
+        desc: 'Colorful Cocomelon party pack with custom dipped Oreos and Rice Krispies!',
+        tag: 'Party Treats',
+        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7619469465029332238'
+      },
+      {
+        id: '7674822234552274189',
+        title: 'Jurassic Cake',
+        desc: 'Jurassic World dinosaur cake with realistic crumbles and foliage!',
+        tag: 'Dinosaur Cake',
+        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7674822234552274189'
+      },
+      {
+        id: '7679245173900971277',
+        title: '3-Tier Wedding Cake',
+        desc: 'Bespoke 3-tier custom wedding cake designed for a sweet celebration!',
+        tag: 'Wedding Cake',
+        url: 'https://www.tiktok.com/@butterfly.bliss.b0/photo/7679245173900971277?image_index=2&lang=en'
+      }
+    ];
+
+    // -------------------------------------------------------------
+    // 2. GOOGLE SHEET PARSER (ROBUST JSONP & CORS-FREE BYPASS)
+    // -------------------------------------------------------------
+    let gSheetLoadTimeout = null;
+
+    function loadMenuFromGoogleSheet() {
       const statusLabel = document.getElementById('cmsStatusLabel');
       const syncDot = document.getElementById('syncDot');
       const syncIcon = document.getElementById('syncIcon');
 
-      if (parsedItems && parsedItems.length > 0) {
-        const validRows = parsedItems.filter(r => (r.name || r.itemname || r.item || r.title) && String(r.name || r.itemname || r.item || r.title).trim() !== '');
+      if (syncIcon) syncIcon.classList.add('fa-spin');
+      if (statusLabel) statusLabel.textContent = 'Syncing...';
 
-        if (validRows.length > 0) {
-          TREATS_MENU_DATA = validRows.map((row, index) => {
-            const name = String(row.name || row.itemname || row.item || row.title || `Item ${index + 1}`).trim();
-            const id = String(row.id || name.toLowerCase().replace(/[^a-z0-9]/g, '_')).trim();
-            
-            const p6 = parseFloat(row.price6 || row.halfdozen || row.price6count || 0) || 0;
-            const p12 = parseFloat(row.price12 || row.fulldozen || row.price12count || 0) || 0;
+      // Clear any pending timeout
+      if (gSheetLoadTimeout) clearTimeout(gSheetLoadTimeout);
 
-            const unit6 = row.unit6 ? String(row.unit6).trim() : (p12 > 0 ? 'Half Dozen' : 'Full Order');
-            const unit12 = row.unit12 ? String(row.unit12).trim() : (p12 > 0 ? 'Full Dozen' : '');
-
-            const rawImg = row.img || row.image || row.imageurl || row.photourl || '';
-            const cleanImg = sanitizeImageUrl(rawImg);
-
-            return {
-              id: id,
-              name: name,
-              category: String(row.category || 'Specialty Sweets').trim(),
-              icon: String(row.icon || '🦋').trim(),
-              badge: String(row.badge || 'Fresh Made').trim(),
-              desc: String(row.desc || row.description || 'Handcrafted fresh to order for your Peoria celebration.').trim(),
-              unit6: unit6,
-              price6: p6,
-              unit12: unit12,
-              price12: p12,
-              img: cleanImg
-            };
-          });
-
-          if (statusLabel) statusLabel.textContent = `Live (${TREATS_MENU_DATA.length})`;
-          if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse';
-        } else {
-          useFallback('Empty sheet rows');
+      // Timeout fallback if network fails
+      gSheetLoadTimeout = setTimeout(() => {
+        if (TREATS_MENU_DATA === DEFAULT_TREATS_MENU) {
+          useFallback();
+          if (syncIcon) syncIcon.classList.remove('fa-spin');
         }
-      } else {
-        useFallback('Unable to parse sheet data');
-      }
+      }, 6000);
 
-      if (syncIcon) syncIcon.classList.remove('fa-spin');
-      renderCategoryTabs();
-      renderMenuItems(currentActiveCategory);
-      renderCalculatorSelectors();
+      // Define global JSONP callback
+      window.__handleSheetData = function(gvizData) {
+        if (gSheetLoadTimeout) clearTimeout(gSheetLoadTimeout);
+        if (syncIcon) syncIcon.classList.remove('fa-spin');
+
+        try {
+          if (gvizData && gvizData.table && gvizData.table.rows && gvizData.table.rows.length > 0) {
+            const cols = gvizData.table.cols.map((col, idx) => {
+              const label = (col.label || '').toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+              return label || `col_${idx}`;
+            });
+
+            const parsedItems = gvizData.table.rows.map((row) => {
+              const itemObj = {};
+              (row.c || []).forEach((cell, cIdx) => {
+                const key = cols[cIdx] || `col_${cIdx}`;
+                itemObj[key] = cell && cell.v !== null && cell.v !== undefined ? cell.v : '';
+              });
+              return itemObj;
+            });
+
+            const validRows = parsedItems.filter(r => (r.name || r.itemname || r.item || r.title) && String(r.name || r.itemname || r.item || r.title).trim() !== '');
+
+            if (validRows.length > 0) {
+              TREATS_MENU_DATA = validRows.map((row, index) => {
+                const name = String(row.name || row.itemname || row.item || row.title || `Item ${index + 1}`).trim();
+                const id = String(row.id || name.toLowerCase().replace(/[^a-z0-9]/g, '_')).trim();
+                
+                const p6 = parseFloat(row.price6 || row.halfdozen || row.price6count || 0) || 0;
+                const p12 = parseFloat(row.price12 || row.fulldozen || row.price12count || 0) || 0;
+
+                const unit6 = row.unit6 ? String(row.unit6).trim() : (p12 > 0 ? 'Half Dozen' : 'Standard Order');
+                const unit12 = row.unit12 ? String(row.unit12).trim() : (p12 > 0 ? 'Full Dozen' : '');
+
+                const rawImg = row.img || row.image || row.imageurl || row.photourl || '';
+                const cleanImg = sanitizeImageUrl(rawImg);
+
+                return {
+                  id: id,
+                  name: name,
+                  category: String(row.category || 'Specialty Sweets').trim(),
+                  icon: String(row.icon || '🦋').trim(),
+                  badge: String(row.badge || 'Fresh Made').trim(),
+                  desc: String(row.desc || row.description || 'Handcrafted fresh to order for your celebration.').trim(),
+                  unit6: unit6,
+                  price6: p6,
+                  unit12: unit12,
+                  price12: p12,
+                  img: cleanImg
+                };
+              });
+
+              if (statusLabel) statusLabel.textContent = `Sheet Live (${TREATS_MENU_DATA.length})`;
+              if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse';
+              renderCategoryTabs();
+              renderMenuItems(currentActiveCategory);
+              populateQuickAddDropdown();
+              return;
+            }
+          }
+        } catch (e) {
+          console.warn('Error parsing Google Sheet data:', e);
+        }
+
+        useFallback();
+      };
+
+      // Create JSONP script tag (bypasses browser CORS completely)
+      const scriptId = 'google_sheet_jsonp_script';
+      const existingScript = document.getElementById(scriptId);
+      if (existingScript) existingScript.remove();
+
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=responseHandler:window.__handleSheetData&sheet=${encodeURIComponent(GOOGLE_SHEET_TAB_NAME)}&_t=${Date.now()}`;
+      script.onerror = function() {
+        console.warn('JSONP script load error, falling back to cached menu.');
+        useFallback();
+        if (syncIcon) syncIcon.classList.remove('fa-spin');
+      };
+      document.body.appendChild(script);
     }
 
-    function useFallback(reason) {
-      console.info('Using fallback menu data. Reason:', reason);
+    function useFallback() {
       TREATS_MENU_DATA = [...DEFAULT_TREATS_MENU];
       const statusLabel = document.getElementById('cmsStatusLabel');
       const syncDot = document.getElementById('syncDot');
-      const syncIcon = document.getElementById('syncIcon');
-      
-      if (statusLabel) statusLabel.textContent = 'Cached';
+      if (statusLabel) statusLabel.textContent = 'Sheet Cached';
       if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-amber-500';
-      if (syncIcon) syncIcon.classList.remove('fa-spin');
-      
       renderCategoryTabs();
       renderMenuItems(currentActiveCategory);
-      renderCalculatorSelectors();
+      populateQuickAddDropdown();
     }
 
     function refreshSheetData() {
@@ -1435,7 +1908,7 @@
     }
 
     // -------------------------------------------------------------
-    // 2. CATEGORY TABS RENDERER
+    // 3. CATEGORY TABS RENDERER
     // -------------------------------------------------------------
     function renderCategoryTabs() {
       const container = document.getElementById('categoryTabsContainer');
@@ -1445,14 +1918,14 @@
 
       container.innerHTML = categories.map(cat => {
         const isAll = cat === 'all';
-        const label = isAll ? 'All Offerings' : cat;
+        const label = isAll ? 'All Treats & Cakes' : cat;
         const isActive = currentActiveCategory === cat;
         const activeClass = isActive 
-          ? 'bg-[#9E72C3] text-white shadow-md' 
-          : 'bg-white text-cocoa-800 border border-[#E4D5F6] hover:bg-[#FAF7FD] shadow-sm';
+          ? 'bg-[#7D4FA8] text-white shadow-sm' 
+          : 'bg-white text-cocoa-900 border border-[#CFB5ED] hover:bg-[#FAF7FD] shadow-xs';
 
         return `
-          <button onclick="filterMenuCategory('${cat}')" class="menu-tab-btn px-4 py-2 rounded-full ${activeClass} transition-all shrink-0 text-xs sm:text-sm font-bold" data-cat="${cat}">
+          <button onclick="filterMenuCategory('${cat}')" class="px-4 py-2 rounded-full ${activeClass} transition-all shrink-0 text-xs sm:text-sm font-bold">
             ${label}
           </button>
         `;
@@ -1466,7 +1939,7 @@
     }
 
     // -------------------------------------------------------------
-    // 3. RENDER MENU ITEMS
+    // 4. RENDER MENU ITEMS
     // -------------------------------------------------------------
     function renderMenuItems(filter = 'all') {
       const grid = document.getElementById('dynamicMenuGrid');
@@ -1477,8 +1950,8 @@
 
       if (itemsToRender.length === 0) {
         grid.innerHTML = `
-          <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-[#E4D5F6] p-8">
-            <p class="text-cocoa-800/70 text-sm">No items found under this category right now.</p>
+          <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-[#CFB5ED] p-8">
+            <p class="text-cocoa-800 text-sm">No items found under this category.</p>
           </div>
         `;
         return;
@@ -1486,7 +1959,7 @@
 
       itemsToRender.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'menu-card bg-white rounded-3xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between';
+        card.className = 'bg-white rounded-3xl overflow-hidden border border-[#CFB5ED] shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between';
         
         const hasPhoto = item.img && item.img.trim().length > 5;
         const hasSecondPrice = item.price12 > 0;
@@ -1494,12 +1967,12 @@
         card.innerHTML = `
           <div>
             ${hasPhoto ? `
-              <div class="relative h-48 w-full overflow-hidden bg-[#FAF7FD]">
+              <div class="relative h-48 w-full overflow-hidden bg-brand-100">
                 <img 
                   src="${item.img}" 
                   alt="${item.name}" 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-4xl bg-[#F3EDFB]\\'>${item.icon || '🦋'}</div>';"
+                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-4xl bg-[#FAF7FD]\\'>${item.icon || '🦋'}</div>';"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
                 <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/95 backdrop-blur-md text-[#7D4FA8] shadow-sm">
@@ -1511,36 +1984,44 @@
               </div>
             ` : `
               <div class="p-6 pb-2 flex justify-between items-start">
-                <div class="w-12 h-12 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-inner">
+                <div class="w-12 h-12 rounded-2xl bg-[#F3EDFB] text-[#7D4FA8] flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-inner border border-[#CFB5ED]">
                   ${item.icon || '🦋'}
                 </div>
-                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#E4D5F6] text-[#643A89]">${item.badge || 'Fresh Made'}</span>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#FAF7FD] text-[#7D4FA8] border border-[#CFB5ED]">${item.badge || 'Fresh Made'}</span>
               </div>
             `}
 
             <div class="p-6 pt-4">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-[#9E72C3] block mb-1">${item.category}</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-[#7D4FA8] block mb-1">${item.category}</span>
               <h3 class="font-serif text-xl font-bold text-cocoa-950">${item.name}</h3>
-              <p class="text-xs text-cocoa-800/70 mt-1.5 leading-relaxed">${item.desc}</p>
+              <p class="text-xs text-cocoa-800 mt-1.5 leading-relaxed">${item.desc}</p>
             </div>
           </div>
           
           <div class="p-6 pt-0">
-            <div class="bg-[#FAF7FD] rounded-2xl p-3.5 space-y-2 text-xs border border-[#E4D5F6]">
-              <div class="flex justify-between items-center font-medium">
+            <div class="bg-[#FAF7FD] rounded-2xl p-3.5 space-y-2 text-xs border border-[#CFB5ED]">
+              <div class="flex justify-between items-center font-medium text-cocoa-950">
                 <span>${item.unit6}</span>
-                <span class="font-bold text-cocoa-950 text-sm">$${item.price6}</span>
+                <span class="font-bold text-sm">$${item.price6}</span>
               </div>
               ${hasSecondPrice ? `
-                <div class="flex justify-between items-center font-medium border-t border-[#E4D5F6] pt-2">
+                <div class="flex justify-between items-center font-medium border-t border-[#F3EDFB] pt-2 text-cocoa-950">
                   <span>${item.unit12 || 'Upgraded Option'}</span>
                   <span class="font-bold text-[#7D4FA8] text-sm">$${item.price12}</span>
                 </div>
               ` : ''}
             </div>
-            <button onclick="selectForBuilder('${item.name}')" class="w-full mt-4 py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors flex items-center justify-center gap-2">
-              <i class="fa-solid fa-plus text-[10px]"></i> Add to Quote & Order
-            </button>
+
+            <div class="grid grid-cols-1 ${hasSecondPrice ? 'sm:grid-cols-2' : ''} gap-2 mt-4">
+              <button onclick="addItemToActiveTicket('${item.id}', '${item.name.replace(/'/g, "\\'")}', '${item.unit6.replace(/'/g, "\\'")}', ${item.price6})" class="py-2.5 px-3 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5 shadow-xs">
+                <span>+ ${item.unit6}</span>
+              </button>
+              ${hasSecondPrice ? `
+                <button onclick="addItemToActiveTicket('${item.id}', '${item.name.replace(/'/g, "\\'")}', '${item.unit12.replace(/'/g, "\\'")}', ${item.price12})" class="py-2.5 px-3 rounded-xl bg-[#7D4FA8] hover:bg-[#643A89] text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5 shadow-xs">
+                  <span>+ ${item.unit12}</span>
+                </button>
+              ` : ''}
+            </div>
           </div>
         `;
         grid.appendChild(card);
@@ -1548,140 +2029,166 @@
     }
 
     // -------------------------------------------------------------
-    // 4. CLIENT TIKTOK VIDEOS & LIGHTBOX
+    // 5. STREAMLINED ORDER TICKET & DYNAMIC CALCULATOR
     // -------------------------------------------------------------
-    const CLIENT_TIKTOK_VIDEOS = [
-      {
-        id: '7648739014681414925',
-        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7648739014681414925',
-        title: 'Henny Cake',
-        desc: 'Custom Hennessy celebration bottle drip cake with rich chocolate finishes!',
-        imgId: 'ttImg_7648739014681414925'
-      },
-      {
-        id: '7672129970357030157',
-        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7672129970357030157',
-        title: 'Angel & Stitch Cake',
-        desc: 'Sweet Angel & Stitch themed celebration birthday cake with custom lilac piping!',
-        imgId: 'ttImg_7672129970357030157'
-      },
-      {
-        id: '7619469465029332238',
-        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7619469465029332238',
-        title: 'Cocomelon Treats',
-        desc: 'Vibrant Cocomelon custom dipped Oreos, Rice Krispies pops, and pretzel bows!',
-        imgId: 'ttImg_7619469465029332238'
-      },
-      {
-        id: '7674822234552274189',
-        url: 'https://www.tiktok.com/@butterfly.bliss.b0/video/7674822234552274189',
-        title: 'Jurassic Cake',
-        desc: 'Action-packed Jurassic World dinosaur cake with realistic rock crumbles and tropical leaves!',
-        imgId: 'ttImg_7674822234552274189'
+    function addItemToActiveTicket(id, name, optionLabel, price) {
+      const existing = ACTIVE_TICKET_ITEMS.find(item => item.id === id && item.optionLabel === optionLabel);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        ACTIVE_TICKET_ITEMS.push({
+          ticketId: Date.now() + Math.random(),
+          id: id,
+          name: name,
+          optionLabel: optionLabel,
+          price: price,
+          qty: 1
+        });
       }
-    ];
+      renderActiveTicketUI();
+      showCartToast(`Added ${name} (${optionLabel}) to your quote!`);
+    }
 
-    function fetchTikTokThumbnails() {
-      CLIENT_TIKTOK_VIDEOS.forEach(video => {
-        const oembedUrl = `https://www.tiktok.com/oembed?url=${encodeURIComponent(video.url)}`;
-        fetch(oembedUrl)
-          .then(res => res.json())
-          .then(data => {
-            if (data && data.thumbnail_url) {
-              const imgEl = document.getElementById(video.imgId);
-              if (imgEl) imgEl.src = data.thumbnail_url;
-            }
-          })
-          .catch(() => {
-            // Keep fallback
-          });
+    function removeTicketItem(ticketId) {
+      ACTIVE_TICKET_ITEMS = ACTIVE_TICKET_ITEMS.filter(item => item.ticketId !== ticketId);
+      renderActiveTicketUI();
+    }
+
+    function changeTicketQty(ticketId, delta) {
+      const item = ACTIVE_TICKET_ITEMS.find(i => i.ticketId === ticketId);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        removeTicketItem(ticketId);
+      } else {
+        renderActiveTicketUI();
+      }
+    }
+
+    function populateQuickAddDropdown() {
+      const selector = document.getElementById('quickItemSelector');
+      if (!selector) return;
+      selector.innerHTML = '<option value="">-- Choose item from menu --</option>';
+
+      TREATS_MENU_DATA.forEach(item => {
+        const opt1 = document.createElement('option');
+        opt1.value = JSON.stringify({ id: item.id, name: item.name, optionLabel: item.unit6, price: item.price6 });
+        opt1.textContent = `${item.name} (${item.unit6}) — $${item.price6}`;
+        selector.appendChild(opt1);
+
+        if (item.price12 > 0) {
+          const opt2 = document.createElement('option');
+          opt2.value = JSON.stringify({ id: item.id, name: item.name, optionLabel: item.unit12, price: item.price12 });
+          opt2.textContent = `${item.name} (${item.unit12}) — $${item.price12}`;
+          selector.appendChild(opt2);
+        }
       });
     }
 
-    function openClientTikTok(url, title, desc) {
-      document.getElementById('tiktokModalTitle').textContent = title;
-      document.getElementById('tiktokModalDesc').textContent = desc;
-      const imgMatch = CLIENT_TIKTOK_VIDEOS.find(v => v.url === url);
-      if (imgMatch) {
-        const currentSrc = document.getElementById(imgMatch.imgId)?.src;
-        document.getElementById('tiktokModalImg').src = currentSrc || '';
+    function handleAddFromDropdown() {
+      const selector = document.getElementById('quickItemSelector');
+      if (!selector || !selector.value) return;
+
+      try {
+        const parsed = JSON.parse(selector.value);
+        addItemToActiveTicket(parsed.id, parsed.name, parsed.optionLabel, parsed.price);
+        selector.value = "";
+      } catch (err) {
+        console.warn('Could not parse quick add selection:', err);
       }
-      document.getElementById('tiktokModalDirectLink').href = url;
-      document.getElementById('tiktokReelModal').classList.remove('hidden');
     }
 
-    function closeTikTokModal() {
-      document.getElementById('tiktokReelModal').classList.add('hidden');
-    }
+    function renderActiveTicketUI() {
+      const container = document.getElementById('activeTicketItemsContainer');
+      const countLabel = document.getElementById('itemCountLabel');
+      const navBadge = document.getElementById('navCartCountBadge');
 
-    // -------------------------------------------------------------
-    // 5. RENDER CALCULATOR DROPDOWNS
-    // -------------------------------------------------------------
-    function renderCalculatorSelectors() {
-      const container = document.getElementById('calculatorSelectorsContainer');
-      if (!container) return;
-      container.innerHTML = '';
+      const totalCount = ACTIVE_TICKET_ITEMS.reduce((sum, item) => sum + item.qty, 0);
+      if (countLabel) countLabel.textContent = `${totalCount} item${totalCount === 1 ? '' : 's'} in quote`;
 
-      TREATS_MENU_DATA.forEach((item) => {
-        const row = document.createElement('div');
-        row.className = 'p-3 rounded-2xl bg-[#FAF7FD] border border-[#E4D5F6] flex flex-col sm:flex-row sm:items-center justify-between gap-3';
-        
-        const hasSecondPrice = item.price12 > 0;
-
-        let optionsHtml = `<option value="0" data-price="0">None (0)</option>`;
-        optionsHtml += `<option value="opt1" data-price="${item.price6}">${item.unit6} - $${item.price6}</option>`;
-        
-        if (hasSecondPrice) {
-          optionsHtml += `<option value="opt2" data-price="${item.price12}">${item.unit12} - $${item.price12}</option>`;
+      if (navBadge) {
+        if (totalCount > 0) {
+          navBadge.textContent = totalCount;
+          navBadge.classList.remove('hidden');
+        } else {
+          navBadge.classList.add('hidden');
         }
+      }
 
-        row.innerHTML = `
-          <div>
-            <div class="font-bold text-sm text-cocoa-950 flex items-center gap-1.5">
-              <span>${item.icon}</span> ${item.name}
-            </div>
-            <div class="text-[11px] text-cocoa-800/70">
-              ${item.unit6}: $${item.price6} ${hasSecondPrice ? `| ${item.unit12}: $${item.price12}` : ''}
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <select onchange="updateLiveEstimate()" id="calc_${item.id}" data-item-name="${item.name}" class="calc-select px-3 py-1.5 rounded-xl border border-[#CFB5ED] text-xs font-semibold bg-white outline-none">
-              ${optionsHtml}
-            </select>
+      if (!container) return;
+
+      if (ACTIVE_TICKET_ITEMS.length === 0) {
+        container.innerHTML = `
+          <div class="p-6 rounded-2xl bg-[#FAF7FD] border border-dashed border-[#CFB5ED] text-center text-xs text-cocoa-800/70 space-y-1">
+            <p class="font-bold text-cocoa-950">No treats or packages added yet!</p>
+            <p>Click "+ Add" on any Wedding Package, Party Pack, or Menu item above to start building your quote.</p>
           </div>
         `;
-        container.appendChild(row);
-      });
+      } else {
+        container.innerHTML = ACTIVE_TICKET_ITEMS.map(item => `
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-[#FAF7FD] border border-[#CFB5ED] flex items-center justify-between gap-3 shadow-xs">
+            <div class="flex-1 min-w-0">
+              <div class="font-bold text-xs sm:text-sm text-cocoa-950 truncate">${item.name}</div>
+              <div class="text-[11px] text-[#7D4FA8] font-semibold">${item.optionLabel} • $${item.price} each</div>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <div class="flex items-center border border-[#CFB5ED] bg-white rounded-xl overflow-hidden text-xs">
+                <button type="button" onclick="changeTicketQty(${item.ticketId}, -1)" class="w-7 h-7 flex items-center justify-center hover:bg-[#F3EDFB] font-bold text-cocoa-900">&minus;</button>
+                <span class="w-7 text-center font-bold text-cocoa-950">${item.qty}</span>
+                <button type="button" onclick="changeTicketQty(${item.ticketId}, 1)" class="w-7 h-7 flex items-center justify-center hover:bg-[#F3EDFB] font-bold text-cocoa-900">&plus;</button>
+              </div>
+
+              <div class="font-black text-xs sm:text-sm text-cocoa-950 w-14 text-right">
+                $${(item.price * item.qty).toFixed(2)}
+              </div>
+
+              <button type="button" onclick="removeTicketItem(${item.ticketId})" class="p-1.5 text-cocoa-800/40 hover:text-red-600 transition-colors" title="Remove item">
+                <i class="fa-solid fa-trash-can text-xs"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
 
       updateLiveEstimate();
     }
 
+    function showCartToast(message) {
+      const toast = document.getElementById('cartToast');
+      const toastText = document.getElementById('cartToastText');
+      if (!toast || !toastText) return;
+
+      toastText.textContent = message;
+      toast.classList.remove('hidden');
+
+      if (window.toastTimeout) clearTimeout(window.toastTimeout);
+      window.toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3400);
+    }
+
     // -------------------------------------------------------------
-    // 6. PRICE CALCULATOR & DEPOSIT LOGIC
+    // 6. PRICE CALCULATOR & POLICY RULES
     // -------------------------------------------------------------
     function updateLiveEstimate() {
       let subtotal = 0;
       let summaryHtml = '';
       let breakdownText = [];
 
-      const selects = document.querySelectorAll('.calc-select');
-      selects.forEach(selectEl => {
-        const selOpt = selectEl.options[selectEl.selectedIndex];
-        const price = parseFloat(selOpt.getAttribute('data-price')) || 0;
-        const itemName = selectEl.getAttribute('data-item-name');
-
-        if (price > 0) {
-          subtotal += price;
-          summaryHtml += `
-            <div class="flex justify-between items-center text-white/90">
-              <span>${itemName} (${selOpt.text})</span>
-              <span class="font-bold text-[#CFB5ED]">$${price.toFixed(2)}</span>
-            </div>
-          `;
-          breakdownText.push(`${itemName} (${selOpt.text})`);
-        }
+      ACTIVE_TICKET_ITEMS.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span class="truncate pr-2">${item.qty}x ${item.name} (${item.optionLabel})</span>
+            <span class="font-bold text-[#CFB5ED] shrink-0">$${itemTotal.toFixed(2)}</span>
+          </div>
+        `;
+        breakdownText.push(`${item.qty}x ${item.name} [${item.optionLabel}] ($${itemTotal.toFixed(2)})`);
       });
 
+      // Cake Filling
       const fillingSelect = document.getElementById('cakeFillingSelect');
       if (fillingSelect) {
         const fillingOpt = fillingSelect.options[fillingSelect.selectedIndex];
@@ -1689,23 +2196,50 @@
         if (fillingPrice > 0) {
           subtotal += fillingPrice;
           summaryHtml += `
-            <div class="flex justify-between items-center text-white/90">
-              <span>🎂 ${fillingOpt.text}</span>
+            <div class="flex justify-between items-center text-white/95">
+              <span>🎂 Filling: ${fillingOpt.text}</span>
               <span class="font-bold text-[#CFB5ED]">+$${fillingPrice.toFixed(2)}</span>
             </div>
           `;
-          breakdownText.push(`Filling: ${fillingOpt.value} (+$${fillingPrice})`);
+          breakdownText.push(`Cake Filling: ${fillingOpt.value} (+$${fillingPrice})`);
         }
       }
 
+      // Add-on Setup
+      const addonSetup = document.getElementById('addon_setup');
+      if (addonSetup && addonSetup.checked) {
+        subtotal += 50;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span>🚚 On-Site Setup & Delivery</span>
+            <span class="font-bold text-[#CFB5ED]">+$50.00</span>
+          </div>
+        `;
+        breakdownText.push('On-Site Setup & Delivery (+$50)');
+      }
+
+      // Add-on Stands Rental
+      const addonStands = document.getElementById('addon_stands');
+      if (addonStands && addonStands.checked) {
+        subtotal += 75;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span>🧁 Display Stands & Risers Rental</span>
+            <span class="font-bold text-[#CFB5ED]">+$75.00</span>
+          </div>
+        `;
+        breakdownText.push('Display Stands Rental (+$75)');
+      }
+
+      // Add-on Wording
       const addonWording = document.getElementById('addon_wording');
       const wordingInputContainer = document.getElementById('wording_input_container');
       if (addonWording && addonWording.checked) {
         if (wordingInputContainer) wordingInputContainer.classList.remove('hidden');
         subtotal += 5;
         summaryHtml += `
-          <div class="flex justify-between items-center text-white/90">
-            <span>🔤 Custom Chocolate Letters</span>
+          <div class="flex justify-between items-center text-white/95">
+            <span>🔤 Custom Chocolate Lettering</span>
             <span class="font-bold text-[#CFB5ED]">+$5.00</span>
           </div>
         `;
@@ -1714,12 +2248,13 @@
         wordingInputContainer.classList.add('hidden');
       }
 
+      // Add-on Cereal / Crunch
       const addonCereal = document.getElementById('addon_cereal');
       if (addonCereal && addonCereal.checked) {
         subtotal += 6;
         summaryHtml += `
-          <div class="flex justify-between items-center text-white/90">
-            <span>✨ Specialty Crunch Crumble Toppings</span>
+          <div class="flex justify-between items-center text-white/95">
+            <span>✨ Specialty Crunch Crumble</span>
             <span class="font-bold text-[#CFB5ED]">+$6.00</span>
           </div>
         `;
@@ -1727,9 +2262,10 @@
       }
 
       if (summaryHtml === '') {
-        summaryHtml = '<div class="text-white/50 italic">No treats or cakes selected yet. Pick items on the left to build your estimate.</div>';
+        summaryHtml = '<div class="text-white/50 italic">No items in your quote yet. Pick items from the menu or packages above.</div>';
       }
 
+      // Policy Calculation
       let deposit = 0;
       const depositLabel = document.getElementById('depositLabel');
       const depositPolicyNote = document.getElementById('depositPolicyNote');
@@ -1758,21 +2294,8 @@
       if (netBreakdown) netBreakdown.value = breakdownText.join(' | ');
     }
 
-    function selectForBuilder(itemTitle) {
-      const bookingSec = document.getElementById('booking');
-      bookingSec.scrollIntoView({ behavior: 'smooth' });
-
-      const selects = document.querySelectorAll('.calc-select');
-      selects.forEach(sel => {
-        if (sel.getAttribute('data-item-name') === itemTitle) {
-          sel.selectedIndex = 1;
-        }
-      });
-      updateLiveEstimate();
-    }
-
     // -------------------------------------------------------------
-    // 7. ORDER SUBMISSION (WEB3FORMS EMAIL DISPATCH + SMS)
+    // 7. ORDER SUBMISSION
     // -------------------------------------------------------------
     async function handleOrderSubmit(event) {
       event.preventDefault();
@@ -1802,9 +2325,9 @@
           body: formData
         });
         const result = await response.json();
-        console.log('Web3Forms dispatch status:', result);
+        console.log('Web3Forms response:', result);
       } catch (err) {
-        console.warn('Form submission notification:', err);
+        console.warn('Form dispatch notice:', err);
       } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (submitBtnText) submitBtnText.textContent = 'Submit Custom Booking Request';
@@ -1834,7 +2357,43 @@
     }
 
     // -------------------------------------------------------------
-    // 8. NAVIGATION & UI HELPERS
+    // 8. TIKTOK LIGHTBOX & THUMBNAILS
+    // -------------------------------------------------------------
+    function openClientTikTok(url, title, desc) {
+      document.getElementById('ttModalTitle').textContent = title;
+      document.getElementById('ttModalDesc').textContent = desc;
+      document.getElementById('ttModalLink').href = url;
+      document.getElementById('tiktokModal').classList.remove('hidden');
+    }
+
+    function closeTikTokModal() {
+      document.getElementById('tiktokModal').classList.add('hidden');
+    }
+
+    async function loadTikTokThumbnails() {
+      for (const item of CLIENT_TIKTOK_VIDEOS) {
+        // Skip photo posts (such as 3-tier wedding cake) which already have their default local images
+        if (item.url.includes('/photo/')) continue;
+
+        try {
+          const cleanUrl = item.url.split('?')[0];
+          const tiktokOembedUrl = `https://www.tiktok.com/oembed?url=${encodeURIComponent(cleanUrl)}`;
+          const res = await fetch(tiktokOembedUrl);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.thumbnail_url) {
+              const imgEl = document.getElementById(`ttImg_${item.id}`);
+              if (imgEl) imgEl.src = data.thumbnail_url;
+            }
+          }
+        } catch (err) {
+          // Fallback image remains active
+        }
+      }
+    }
+
+    // -------------------------------------------------------------
+    // 9. UI HELPERS
     // -------------------------------------------------------------
     function toggleFaq(button) {
       const content = button.nextElementSibling;
@@ -1844,8 +2403,8 @@
         content.classList.add('hidden');
         icon.classList.remove('rotate-180');
       } else {
-        content.classList.remove('hidden');
-        icon.classList.add('rotate-180');
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
       }
     }
 
@@ -1862,11 +2421,12 @@
     }
 
     // -------------------------------------------------------------
-    // 9. INITIALIZATION ON WINDOW LOAD
+    // 10. INITIALIZATION
     // -------------------------------------------------------------
     window.addEventListener('DOMContentLoaded', () => {
       loadMenuFromGoogleSheet();
-      fetchTikTokThumbnails();
+      renderActiveTicketUI();
+      loadTikTokThumbnails();
     });
   </script>
 </body>
