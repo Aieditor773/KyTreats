@@ -148,7 +148,7 @@
             <circle cx="52" cy="14" r="2.2" fill="#1A1110" />
             <circle cx="108" cy="14" r="2.2" fill="#1A1110" />
 
-            <!-- Wings Outline -->
+            <!-- Wings -->
             <path d="M78 48 C68 26 38 20 15 28 C11 38 12 55 20 70 C24 78 31 83 38 88 C32 94 28 103 30 114 C33 124 45 128 58 124 C68 121 74 112 78 100 Z" fill="#17101C" />
             <path d="M82 48 C92 26 122 20 145 28 C149 38 148 55 140 70 C136 78 129 83 122 88 C128 94 132 103 130 114 C127 124 115 128 102 124 C92 121 86 112 82 100 Z" fill="#17101C" />
 
@@ -167,7 +167,7 @@
               <path d="M108 118 C99 117 92 112 87 103 C90 100 98 101 106 104 C113 106 114 113 108 118 Z" />
             </g>
 
-            <!-- White Border Dots -->
+            <!-- Border Dots -->
             <g fill="#FFFFFF">
               <circle cx="18" cy="36" r="1.6" /> <circle cx="16" cy="44" r="1.8" /> <circle cx="17" cy="54" r="1.9" />
               <circle cx="21" cy="65" r="1.7" /> <circle cx="25" cy="74" r="1.6" /> <circle cx="33" cy="114" r="1.8" />
@@ -263,8 +263,6 @@
     <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[760px] h-[480px] bg-gradient-to-tr from-[#E4D5F6]/50 via-blush-200/40 to-[#CFB5ED]/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Top Hero Content -->
       <div class="text-center max-w-3xl mx-auto space-y-5">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#CFB5ED] shadow-sm text-xs font-extrabold text-[#7D4FA8] tracking-wide uppercase">
           <span class="text-base">🦋</span> PEORIA, IL ARTISAN BAKERY & CUSTOM TREATS
@@ -294,7 +292,6 @@
           </a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -325,7 +322,7 @@
         </div>
       </div>
 
-      <!-- Real Client Review Cards -->
+      <!-- Real Client Review Cards (Square Aspect Ratio Frame Option B) -->
       <div>
         <div class="flex items-center justify-between mb-3 lg:hidden">
           <span class="text-xs font-bold text-cocoa-950 uppercase tracking-wider flex items-center gap-1.5">
@@ -342,7 +339,7 @@
             
             <!-- Review Card 1: Kids Party Cake & Cupcakes (images/cake3.png) -->
             <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
-              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+              <div class="relative aspect-square w-full overflow-hidden bg-[#FAF7FD]">
                 <img 
                   src="images/cake3.png" 
                   alt="Kids Birthday Cake and Matching Cupcakes" 
@@ -378,12 +375,12 @@
               </div>
             </div>
 
-            <!-- Review Card 2: Chocolate Covered Strawberries (images/strawberries2.png) -->
+            <!-- Review Card 2: Chocolate Dipped Strawberries (images/strawberries4.png) -->
             <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
-              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+              <div class="relative aspect-square w-full overflow-hidden bg-[#FAF7FD]">
                 <img 
-                  src="images/strawberries2.png" 
-                  alt="Gourmet Chocolate Covered Strawberries" 
+                  src="images/strawberries4.png" 
+                  alt="Chocolate Dipped Strawberries" 
                   class="w-full h-full object-cover"
                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=800&auto=format&fit=crop';"
                 />
@@ -393,7 +390,7 @@
                 </div>
                 <div class="absolute bottom-2.5 left-3 right-3 text-white">
                   <span class="text-[9px] font-extrabold uppercase tracking-wider text-[#CFB5ED]">Gourmet Dipped Treat</span>
-                  <h4 class="font-serif text-sm font-bold leading-tight">Hand-Dipped Strawberries</h4>
+                  <h4 class="font-serif text-sm font-bold leading-tight">Chocolate Dipped Strawberries</h4>
                 </div>
               </div>
 
@@ -418,7 +415,7 @@
 
             <!-- Review Card 3: Daughter's Birthday Cake (images/birthday.png) -->
             <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
-              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+              <div class="relative aspect-square w-full overflow-hidden bg-[#FAF7FD]">
                 <img 
                   src="images/birthday.png" 
                   alt="Daughter's Custom Birthday Cake" 
@@ -456,7 +453,7 @@
 
             <!-- Review Card 4: Son's Birthday Cake (Goku / DBZ) (images/dbz.png) -->
             <div class="bg-white rounded-2xl overflow-hidden border border-[#E4D5F6] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
-              <div class="relative h-40 w-full overflow-hidden bg-[#FAF7FD]">
+              <div class="relative aspect-square w-full overflow-hidden bg-[#FAF7FD]">
                 <img 
                   src="images/dbz.png" 
                   alt="Son's Custom Dragon Ball Z Goku Birthday Cake" 
@@ -661,7 +658,7 @@
     </div>
   </section>
 
-  <!-- SECTION 1 OF PACKAGES: Custom Wedding Packages -->
+  <!-- SECTION 1 OF PACKAGES: Custom Wedding Packages (Prices Dynamically Bound to Sheet) -->
   <section id="wedding-packages" class="py-16 lg:py-20 bg-gradient-to-b from-[#FAF5FF] via-white to-[#F8F2FD] border-b border-[#E4D5F6] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -694,7 +691,7 @@
             
             <div>
               <h3 class="font-serif text-xl font-bold text-cocoa-950">Wedding Package #1</h3>
-              <div class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$160</div>
+              <div id="price_wedding_pkg_1" class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$160</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
@@ -714,7 +711,7 @@
           </div>
 
           <div class="pt-6">
-            <button onclick="addItemToActiveTicket('wedding_pkg_1', 'Wedding Package #1', 'Wedding Package #1', 160)" class="w-full py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="addWeddingPackageToTicket('wedding_pkg_1', 'Wedding Package #1', 'Wedding Package #1', 160)" class="w-full py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
               <span>Add Package #1 to Quote</span> &rarr;
             </button>
           </div>
@@ -738,7 +735,7 @@
             
             <div>
               <h3 class="font-serif text-xl font-bold text-cocoa-950">Wedding Package #2</h3>
-              <div class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$260</div>
+              <div id="price_wedding_pkg_2" class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$260</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
@@ -758,7 +755,7 @@
           </div>
 
           <div class="pt-6">
-            <button onclick="addItemToActiveTicket('wedding_pkg_2', 'Wedding Package #2', 'Wedding Package #2', 260)" class="w-full py-2.5 rounded-xl bg-[#7D4FA8] hover:bg-[#643A89] text-white font-bold text-xs shadow-md transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="addWeddingPackageToTicket('wedding_pkg_2', 'Wedding Package #2', 'Wedding Package #2', 260)" class="w-full py-2.5 rounded-xl bg-[#7D4FA8] hover:bg-[#643A89] text-white font-bold text-xs shadow-md transition-colors flex items-center justify-center gap-1.5">
               <span>Add Package #2 to Quote</span> &rarr;
             </button>
           </div>
@@ -778,7 +775,7 @@
             
             <div>
               <h3 class="font-serif text-xl font-bold text-cocoa-950">Package #3 (Dessert Table)</h3>
-              <div class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$360</div>
+              <div id="price_wedding_pkg_3" class="font-serif text-3xl font-black text-[#7D4FA8] mt-1">$360</div>
             </div>
 
             <ul class="space-y-2.5 text-xs text-cocoa-900 border-t border-[#F3EDFB] pt-4">
@@ -798,7 +795,7 @@
           </div>
 
           <div class="pt-6">
-            <button onclick="addItemToActiveTicket('wedding_pkg_3', 'Wedding Package #3 (Dessert Table)', 'Dessert Table Package', 360)" class="w-full py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="addWeddingPackageToTicket('wedding_pkg_3', 'Wedding Package #3 (Dessert Table)', 'Dessert Table Package', 360)" class="w-full py-2.5 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
               <span>Add Package #3 to Quote</span> &rarr;
             </button>
           </div>
@@ -1658,89 +1655,81 @@
       return cleanUrl;
     }
 
-    // Default Treats & Cakes Menu Fallback
-    const DEFAULT_TREATS_MENU = [
-      {
-        id: 'strawberries',
-        name: 'Chocolate Covered Strawberries',
-        category: 'Gourmet Treats',
-        icon: '🍓',
-        badge: 'Seasonal Favorite',
-        desc: 'Fresh strawberries dipped in chocolate with custom drizzles or crumbles. (Seasonal item, not in party packs).',
-        unit6: '6 Strawberries',
-        price6: 20,
-        unit12: '12 Strawberries',
-        price12: 40,
-        img: 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=800&auto=format&fit=crop'
-      },
-      {
-        id: 'crispies',
-        name: 'Chocolate Covered Rice Crispies',
-        category: 'Gourmet Treats',
-        icon: '🧇',
-        badge: 'Custom Wording',
-        desc: 'Individually wrapped Rice Krispies pops. Ideal for custom alphabet lettering (e.g. BABY BOY, names).',
-        unit6: '6 Crispies',
-        price6: 20,
-        unit12: '12 Crispies',
-        price12: 40,
-        img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=800&auto=format&fit=crop'
-      },
-      {
-        id: 'oreos',
-        name: 'Chocolate Covered Oreos',
-        category: 'Gourmet Treats',
-        icon: '🍪',
-        badge: 'Party Classic',
-        desc: 'Classic Oreo pucks encased in thick confectionery chocolate with rosettes, sprinkles, and themed decorations.',
-        unit6: '6 Oreos',
-        price6: 15,
-        unit12: '12 Oreos',
-        price12: 30,
-        img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop'
-      },
-      {
-        id: 'pretzel_rods',
-        name: 'Chocolate Pretzel Rods',
-        category: 'Pretzels & Sweets',
-        icon: '🥨',
-        badge: 'Caramel Option',
-        desc: 'Crunchy pretzel rods dipped in chocolate ($15/6, $30/12). Option to wrap in buttery caramel ($20/6, $40/12).',
-        unit6: '6 Pretzel Rods',
-        price6: 15,
-        unit12: '12 Pretzel Rods',
-        price12: 30,
-        img: ''
-      },
-      {
-        id: 'cheesecake_whole',
-        name: 'Whole Gourmet Cheesecake',
-        category: 'Cheesecakes & Puddings',
-        icon: '🧀',
-        badge: 'Full Cake ($30)',
-        desc: 'Full 9-inch gourmet cheesecake. Choice of Cherry, Strawberry, Oreo, Biscoff, Peach Cobbler, Fruity Pebbles, or Banana Pudding.',
-        unit6: 'Whole Cheesecake',
-        price6: 30,
-        unit12: '',
-        price12: 0,
-        img: ''
-      },
-      {
-        id: 'cake_heart_8',
-        name: '8" Heart Cake',
-        category: 'Heart Cakes',
-        icon: '💖',
-        badge: 'Vintage Lambeth',
-        desc: 'Medium vintage piped heart cake with frills, pearls, and custom message lettering.',
-        unit6: '2-Layer',
-        price6: 70,
-        unit12: '3-Layer',
-        price12: 75,
-        img: ''
-      }
+    // -------------------------------------------------------------
+    // FULL MASTER CACHE (Complete 40+ Items from butterfly_bliss_pricing_data.md)
+    // -------------------------------------------------------------
+    const MASTER_TREATS_CATALOG = [
+      { id: 'wedding_pkg_1', name: 'Wedding Package #1', category: 'Wedding Packages', icon: '💍', badge: 'Wedding ($160)', desc: 'Includes: 1 dz cheesecake or pudding shooters, 2 dz cupcakes, and a single tier cake. Custom colors and flavors.', unit6: 'Package #1', price6: 160, unit12: '', price12: 0, img: '' },
+      { id: 'wedding_pkg_2', name: 'Wedding Package #2', category: 'Wedding Packages', icon: '💒', badge: 'Wedding ($260)', desc: 'Includes: 2 dz dessert cups (cheesecake or pudding), 2 dz cupcakes, and a 2-tier wedding cake.', unit6: 'Package #2', price6: 260, unit12: '', price12: 0, img: '' },
+      { id: 'wedding_pkg_3', name: 'Wedding Package #3 (Dessert Table)', category: 'Wedding Packages', icon: '🥂', badge: 'Complete Table ($360)', desc: 'Custom dessert table: Pick 3–5 dz treats (cheesecake or pudding shooters, cupcakes), plus a 2-tier centerpiece cake.', unit6: 'Package #3', price6: 360, unit12: '', price12: 0, img: '' },
+      { id: 'wedding_custom_cake', name: 'Custom Wedding Cakes Only', category: 'Wedding Packages', icon: '🎂', badge: 'Custom Quote', desc: 'Custom tiered wedding cakes designed to order. Reach out directly for personalized pricing and tasting consults.', unit6: 'Consultation', price6: 0, unit12: 'Custom Quote', price12: 0, img: '' },
+      { id: 'strawberries', name: 'Chocolate Covered Strawberries', category: 'Gourmet Treats', icon: '🍓', badge: 'Seasonal Favorite', desc: 'Fresh strawberries dipped in milk, dark, or white chocolate with custom drizzles or crunch crumbles. (Seasonal item, not in party packs).', unit6: '6 Strawberries', price6: 20, unit12: '12 Strawberries', price12: 40, img: 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=800&auto=format&fit=crop' },
+      { id: 'crispies', name: 'Chocolate Covered Rice Crispies', category: 'Gourmet Treats', icon: '🧇', badge: 'Custom Wording', desc: 'Individually wrapped Rice Krispies pops. Ideal for custom alphabet lettering (e.g. BABY BOY, names, or theme colors).', unit6: '6 Crispies', price6: 20, unit12: '12 Crispies', price12: 40, img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=800&auto=format&fit=crop' },
+      { id: 'oreos', name: 'Chocolate Covered Oreos', category: 'Gourmet Treats', icon: '🍪', badge: 'Party Classic', desc: 'Classic Oreo pucks encased in thick confectionery chocolate with rosettes, sprinkles, and themed decorations.', unit6: '6 Oreos', price6: 15, unit12: '12 Oreos', price12: 30, img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop' },
+      { id: 'pretzel_rods', name: 'Chocolate Pretzel Rods', category: 'Pretzels & Sweets', icon: '🥨', badge: 'Caramel Option', desc: 'Crunchy pretzel rods dipped in chocolate ($15/6, $30/12). Option to wrap in buttery caramel ($20/6, $40/12).', unit6: '6 Pretzel Rods', price6: 15, unit12: '12 Pretzel Rods', price12: 30, img: '' },
+      { id: 'pretzel_bows', name: 'Chocolate Pretzel Bows', category: 'Pretzels & Sweets', icon: '🎀', badge: 'Sweet & Salty', desc: 'Crispy pretzel twists dipped in vibrant tinted chocolate with festive party drizzles and sugars.', unit6: '6 Pretzel Bows', price6: 15, unit12: '12 Pretzel Bows', price12: 35, img: '' },
+      { id: 'apples', name: 'Chocolate Covered Apples', category: 'Gourmet Treats', icon: '🍏', badge: '1 for $5', desc: 'Whole crisp gourmet apples dipped in chocolate, nuts, and caramel drizzles. (1 whole apple for $5).', unit6: '6 Apples', price6: 30, unit12: '12 Apples', price12: 65, img: '' },
+      { id: 'apple_slices', name: 'Chocolate Covered Apple Slices', category: 'Gourmet Treats', icon: '🍎', badge: '8 Slices', desc: 'Crisp fresh apple wedges dipped in premium chocolate and drizzled with toppings.', unit6: '8 Slices', price6: 8, unit12: '16 Slices', price12: 16, img: '' },
+      { id: 'sugar_wafers', name: 'Chocolate Dipped Sugar Wafers', category: 'Gourmet Treats', icon: '🧇', badge: 'Cookie Treat', desc: 'Crunchy vanilla sugar wafer cookies dipped in premium chocolate with drizzles.', unit6: '6 Wafers', price6: 12, unit12: '12 Wafers', price12: 24, img: '' },
+      { id: 'marshmallows', name: 'Chocolate Covered Marshmallows', category: 'Pretzels & Sweets', icon: '🍡', badge: 'Fluffy Pops', desc: 'Jumbo fluffy marshmallows dipped in chocolate with matching sprinkles, drizzles, and ribbons.', unit6: '6 Marshmallows', price6: 10, unit12: '12 Marshmallows', price12: 25, img: '' },
+      { id: 'cakepops', name: 'Custom Cake Pops', category: 'Cakes & Cupcakes', icon: '🍭', badge: 'Custom Themed', desc: 'Hand-rolled cake pops dipped in smooth chocolate coating decorated to match your event theme.', unit6: '6 Cake Pops', price6: 25, unit12: '12 Cake Pops', price12: 35, img: '' },
+      { id: 'cheesecake_cups', name: 'Cheesecake Mini Dessert Cups', category: 'Cheesecakes & Puddings', icon: '🍮', badge: '1 Dozen ($40)', desc: '12 bite-sized gourmet dessert cups layered with graham crust, cheesecake filling, and fruit/cookie toppings.', unit6: '1 Dozen (12)', price6: 40, unit12: '2 Dozen (24)', price12: 80, img: '' },
+      { id: 'cheesecake_single', name: 'Cheesecake Cups & Slices', category: 'Cheesecakes & Puddings', icon: '🍰', badge: 'Single Serving', desc: 'Individual gourmet cheesecake slice ($6) or jumbo 16oz dessert cup ($7).', unit6: '1 Slice', price6: 6, unit12: '16oz Cup', price12: 7, img: '' },
+      { id: 'cheesecake_whole', name: 'Whole Gourmet Cheesecake', category: 'Cheesecakes & Puddings', icon: '🧀', badge: 'Full Cake ($30)', desc: 'Full 9-inch gourmet cheesecake. Choice of Cherry, Strawberry, Oreo, Biscoff, Peach Cobbler, Fruity Pebbles, or Banana Pudding.', unit6: 'Whole Cheesecake', price6: 30, unit12: '', price12: 0, img: '' },
+      { id: 'pudding_cups', name: 'Gourmet Pudding Mini Cups', category: 'Cheesecakes & Puddings', icon: '🍌', badge: '1 Dozen ($25)', desc: '12 mini individual cups of homemade pudding: Banana Pudding (with/without bananas), Strawberry Banana, Vanilla, or Chocolate.', unit6: '1 Dozen (12)', price6: 25, unit12: '2 Dozen (24)', price12: 50, img: '' },
+      { id: 'pudding_single', name: '16oz Pudding Cup', category: 'Cheesecakes & Puddings', icon: '🍨', badge: '16oz Cup ($5)', desc: 'Generous 16oz cup of signature homemade banana pudding, vanilla, or chocolate pudding with wafers and cream.', unit6: '16oz Cup', price6: 5, unit12: 'Whole Pan', price12: 25, img: '' },
+      { id: 'hot_cocoa', name: 'Gourmet Hot Cocoa Bombs', category: 'Hot Cocoa', icon: '☕', badge: 'Winter Favorite', desc: 'Handcrafted chocolate shells filled with gourmet cocoa and marshmallows. Flavors: S\'mores, Milk Chocolate, Cookies n\' Cream, Peppermint, White Chocolate, Grinch.', unit6: '1 Bomb ($5) / 2 ($7)', price6: 5, unit12: '6 Cocoa Bombs', price12: 30, img: '' },
+      { id: 'pack_mini', name: 'Mini Party Pack', category: 'Party Packs', icon: '🎁', badge: 'Value Pack ($115)', desc: 'Includes: 1 dz Rice Crispy Treats, 1 dz Pretzel Rods or Bows, and 1 dz Oreos. Custom theme colors included.', unit6: 'Full Mini Pack', price6: 115, unit12: '', price12: 0, img: '' },
+      { id: 'pack_small', name: 'Small Party Pack', category: 'Party Packs', icon: '🎈', badge: 'Value Pack ($130)', desc: 'Includes: 1 dz Rice Crispy Treats, 1 dz Pretzel Rods or Bows, 1 dz Oreos, and 1 dz Marshmallows.', unit6: 'Full Small Pack', price6: 130, unit12: '', price12: 0, img: '' },
+      { id: 'pack_medium', name: 'Medium Party Pack', category: 'Party Packs', icon: '🎉', badge: 'Best Value ($170)', desc: 'Includes: 2 dz Rice Crispy Treats, 1 dz Oreos, 1 dz Pretzel Rods or Bows, 1 dz Marshmallows, and 6 Whole Apples.', unit6: 'Full Medium Pack', price6: 170, unit12: '', price12: 0, img: '' },
+      { id: 'pack_large', name: 'Large Party Pack', category: 'Party Packs', icon: '👑', badge: 'Party Size ($225)', desc: 'Includes: 2 dz Rice Crispy Treats, 2 dz Oreos, 2 dz Pretzel Rods or Bows, 2 dz Marshmallows, and 6 Whole Apples.', unit6: 'Full Large Pack', price6: 225, unit12: '', price12: 0, img: '' },
+      { id: 'pack_xl', name: 'XL Party Pack (11 Dozen)', category: 'Party Packs', icon: '🏆', badge: 'Pick 11 Dozen ($315)', desc: 'Customizable treat buffet: Pick any 11 dozen treats (Choice of Oreos, Marshmallows, Pretzel Rods/Bows, Rice Crispies, or Whole Apples).', unit6: 'Full XL Pack', price6: 315, unit12: '', price12: 0, img: '' },
+      { id: 'pack_ultimate', name: 'Ultimate Party Pack', category: 'Party Packs', icon: '✨', badge: 'Complete Table ($380)', desc: 'Includes: 1 dz Pretzel Rods or Bows, 1 dz Rice Crispies, 1 dz Oreos, 3 dz Dessert Shooters (2 flavors), plus a 6" 3-Layer Custom Cake.', unit6: 'Full Ultimate Pack', price6: 380, unit12: '', price12: 0, img: '' },
+      { id: 'cake_half_6', name: '6" Half Cake', category: 'Custom Cakes', icon: '🍰', badge: 'Trending Style', desc: 'Trendy modern half-cake design. Perfect for intimate milestones, half birthdays, or smash sessions.', unit6: '2-Layer', price6: 30, unit12: '3-Layer', price12: 50, img: '' },
+      { id: 'cake_half_8', name: '8" Half Cake', category: 'Custom Cakes', icon: '🍰', badge: 'Trending Style', desc: 'Larger half-cake design decorated with custom piping, lettering, and matching color themes.', unit6: '2-Layer', price6: 60, unit12: '3-Layer', price12: 70, img: '' },
+      { id: 'cake_circle_6', name: '6" Circle Cake', category: 'Custom Cakes', icon: '🎂', badge: 'Serves 10-12', desc: 'Classic round custom layer cake. Frosted and personalized in your requested colors and theme.', unit6: '2-Layer', price6: 60, unit12: '3-Layer', price12: 65, img: '' },
+      { id: 'cake_circle_8', name: '8" Circle Cake', category: 'Custom Cakes', icon: '🎂', badge: 'Serves 20-24', desc: 'Generous round layer cake suitable for birthdays, baby showers, and family gatherings.', unit6: '2-Layer', price6: 70, unit12: '3-Layer', price12: 75, img: '' },
+      { id: 'cake_circle_9', name: '9" Circle Cake', category: 'Custom Cakes', icon: '🎂', badge: 'Serves 25-30', desc: '9-inch celebratory cake frosted in vanilla buttercream or custom specialty flavor frosting.', unit6: '2-Layer', price6: 85, unit12: '3-Layer', price12: 90, img: '' },
+      { id: 'cake_circle_10', name: '10" Circle Cake', category: 'Custom Cakes', icon: '🎂', badge: 'Serves 30-38', desc: 'Large celebration cake for large parties and banquets.', unit6: '2-Layer', price6: 100, unit12: '3-Layer', price12: 110, img: '' },
+      { id: 'cake_circle_12', name: '12" Circle Cake', category: 'Custom Cakes', icon: '🎂', badge: 'Serves 40-50', desc: 'Grand single-tier round party cake with customized borders, piping, and decor.', unit6: '2-Layer', price6: 120, unit12: '3-Layer', price12: 130, img: '' },
+      { id: 'cake_heart_6', name: '6" Heart Cake', category: 'Heart Cakes', icon: '💖', badge: 'Vintage Piping', desc: 'Romantic vintage Lambeth heart cake with frills, pearls, and custom message lettering.', unit6: '2-Layer', price6: 60, unit12: '3-Layer', price12: 65, img: '' },
+      { id: 'cake_heart_8', name: '8" Heart Cake', category: 'Heart Cakes', icon: '💖', badge: 'Vintage Piping', desc: 'Medium vintage piped heart cake for anniversaries, birthdays, and bridal celebrations.', unit6: '2-Layer', price6: 70, unit12: '3-Layer', price12: 75, img: '' },
+      { id: 'cake_heart_12', name: '12" Heart Cake', category: 'Heart Cakes', icon: '💖', badge: 'Vintage Piping', desc: 'Large centerpiece vintage heart cake with detailed piping, bows, and custom toppers.', unit6: '2-Layer', price6: 120, unit12: '3-Layer', price12: 130, img: '' },
+      { id: 'cake_bento_box', name: 'Bento Cake Box', category: 'Bento & Cupcakes', icon: '🍱', badge: 'Customer Favorite', desc: 'Adorable 6-inch 2-layer custom cake paired with 5 coordinating decorated cupcakes in a bakery gift box.', unit6: 'Box (Cake + 5 Cupcakes)', price6: 80, unit12: '', price12: 0, img: '' },
+      { id: 'cake_sheet_half', name: '1/2 Sheet Cake', category: 'Sheet Cakes', icon: '🍰', badge: 'Half Sheet', desc: 'Traditional rectangular party sheet cake. Feeds 35-40 guests with customized message and frosting.', unit6: 'Single Layer', price6: 60, unit12: '2-3 Layer Upgrade', price12: 90, img: '' },
+      { id: 'cake_sheet_whole', name: 'Whole Sheet Cake', category: 'Sheet Cakes', icon: '🍰', badge: 'Whole Sheet', desc: 'Full-sized sheet cake for big school events, family reunions, and corporate celebrations (Feeds 70-80).', unit6: 'Single Layer', price6: 80, unit12: '2-3 Layer Upgrade', price12: 90, img: '' },
+      { id: 'cake_3d_sculpted', name: '3D Letter or Number Cake', category: 'Specialty Cakes', icon: '🔢', badge: 'Sculpted ($100)', desc: 'Custom sculpted number or letter cake (e.g. "1", "16", "21") piped with cream rosettes, berries, and macarons.', unit6: 'Single Number/Letter', price6: 100, unit12: '', price12: 0, img: '' },
+      { id: 'cake_2_tier', name: '2-Tier Custom Cake', category: 'Tiered Cakes', icon: '🏰', badge: 'Starts at $200', desc: 'Tiered celebration cake (Sizes 6"-12" circle or 6", 8", 12" heart). Structure and custom decor included.', unit6: 'Base 2-Tier', price6: 200, unit12: '', price12: 0, img: '' },
+      { id: 'cake_3_tier', name: '3-Tier Custom Cake', category: 'Tiered Cakes', icon: '👑', badge: 'Starts at $250', desc: 'Show-stopping 3-tier celebration cake for weddings and milestone galas (Sizes 6"-12" circle or heart).', unit6: 'Base 3-Tier', price6: 250, unit12: '', price12: 0, img: '' },
+      { id: 'cupcakes_simple', name: 'Simple Frosted Cupcakes', category: 'Bento & Cupcakes', icon: '🧁', badge: '1 Dozen ($25)', desc: '12 classic cupcakes with swirls of delicious buttercream and sprinkles. Choice of cake flavor.', unit6: '1 Dozen (12)', price6: 25, unit12: '2 Dozen (24)', price12: 50, img: '' },
+      { id: 'cupcakes_custom', name: 'Custom Themed Cupcakes', category: 'Bento & Cupcakes', icon: '🧁', badge: '1 Dozen ($45)', desc: '12 custom cupcakes with handcrafted fondant toppers, themed embellishments, and custom colorways.', unit6: '1 Dozen (12)', price6: 45, unit12: '2 Dozen (24)', price12: 90, img: '' },
+      { id: 'cupcake_cake', name: 'Cupcake Pull-Apart Cake', category: 'Bento & Cupcakes', icon: '🔢', badge: '15-26 Cupcakes', desc: 'Pull-apart letter, number, or shape cake made with 15 to 26 cupcakes piped into one cohesive design.', unit6: '15-26 Cupcakes', price6: 60, unit12: '', price12: 0, img: '' },
+      { id: 'party_kids_10', name: 'Cake Decorating Party (5-10 Kids)', category: 'Birthday Parties', icon: '🎨', badge: 'Mobile Host ($250)', desc: 'We come to you! Includes take-home aprons, turntables, custom toppers, 1 edible image/kid, & 6" cake per child.', unit6: '5-10 Kids Package', price6: 250, unit12: 'Extra Kid (each)', price12: 10, img: '' },
+      { id: 'party_kids_20', name: 'Cake Decorating Party (10-20 Kids)', category: 'Birthday Parties', icon: '🎨', badge: 'Mobile Host ($275)', desc: 'We come to you! Complete interactive decorating party setup for 10-20 children with take-home cakes.', unit6: '10-20 Kids Package', price6: 275, unit12: 'Extra Kid (each)', price12: 10, img: '' },
+      { id: 'party_kids_30', name: 'Cake Decorating Party (20-30 Kids)', category: 'Birthday Parties', icon: '🎨', badge: 'Mobile Host ($325)', desc: 'Large interactive decorating party setup for 20-30 children. All materials, aprons, and cakes included.', unit6: '20-30 Kids Package', price6: 325, unit12: 'Extra Kid (each)', price12: 10, img: '' },
+      { id: 'addon_stuffed_apple', name: 'Cheesecake Stuffed Apples', category: 'Add-Ons & Extras', icon: '🍏', badge: '$8 per Apple', desc: 'Whole crisp apple cored and stuffed with creamy rich cheesecake filling, dipped in chocolate and toppings.', unit6: '1 Stuffed Apple', price6: 8, unit12: '6 Stuffed Apples', price12: 48, img: '' },
+      { id: 'addon_cheesecake_treat', name: 'Cheesecake Treat Coating', category: 'Add-Ons & Extras', icon: '🍰', badge: '$9 per Dozen', desc: 'Upgrade any dipped treat order with a rich cheesecake dip / crust topping.', unit6: 'Per Dozen (12)', price6: 9, unit12: '', price12: 0, img: '' },
+      { id: 'addon_cereal_topping', name: 'Crunch & Cereal Topping', category: 'Add-Ons & Extras', icon: '🥣', badge: '$6 per Dozen', desc: 'Specialty crunch toppings: Crushed Oreo, Strawberry Crunch crumble, or Fruity/Sweet Cereals.', unit6: 'Per Dozen (12)', price6: 6, unit12: '', price12: 0, img: '' },
+      { id: 'addon_drip', name: 'Cake Drip Add-On', category: 'Add-Ons & Extras', icon: '🍫', badge: 'Cake Upgrade', desc: 'Rich chocolate, white chocolate, caramel, or tinted drip cascading down your cake sides.', unit6: 'Drip Finish', price6: 2, unit12: '', price12: 0, img: '' },
+      { id: 'addon_filling', name: 'Specialty Cake Fillings', category: 'Add-Ons & Extras', icon: '🍓', badge: 'Flavor Boost', desc: 'Gourmet inner layer fillings: Cookie Butter, Fresh Strawberry Compote, or Oreo n\' Cream.', unit6: 'Cake Layer Filling', price6: 5, unit12: '', price12: 0, img: '' },
+      { id: 'addon_edible_image', name: 'Edible Image Print', category: 'Add-Ons & Extras', icon: '🖼️', badge: 'Custom Print', desc: 'High-resolution edible ink sugar sheet print of personal photos, logos, or cartoon characters.', unit6: 'Per Image Sheet', price6: 18, unit12: '', price12: 0, img: '' },
+      { id: 'addon_cake_topper', name: 'Custom Theme Cake Topper', category: 'Add-Ons & Extras', icon: '👑', badge: 'Acrylic/Cardstock', desc: 'Personalized cake topper crafted in your event theme, name, and age.', unit6: 'Custom Topper', price6: 25, unit12: '', price12: 0, img: '' },
+      { id: 'addon_treat_wording', name: 'Custom Treat Lettering', category: 'Add-Ons & Extras', icon: '🔤', badge: 'Starts at $5', desc: 'Custom molded chocolate alphabet letters on treats (e.g. "BABY BOY", initials, or birthday greetings).', unit6: 'Starting Set', price6: 5, unit12: '', price12: 0, img: '' }
     ];
 
-    let TREATS_MENU_DATA = [...DEFAULT_TREATS_MENU];
+    // LocalStorage helper
+    function getStoredMenuData() {
+      try {
+        const stored = localStorage.getItem('bb_menu_cache');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {}
+      return [...MASTER_TREATS_CATALOG];
+    }
+
+    let TREATS_MENU_DATA = getStoredMenuData();
     let currentActiveCategory = 'all';
 
     // Active Cart Ticket Items
@@ -1790,6 +1779,27 @@
     // -------------------------------------------------------------
     let gSheetLoadTimeout = null;
 
+    function syncWeddingCardPrices() {
+      const pkg1 = TREATS_MENU_DATA.find(i => i.id === 'wedding_pkg_1');
+      const pkg2 = TREATS_MENU_DATA.find(i => i.id === 'wedding_pkg_2');
+      const pkg3 = TREATS_MENU_DATA.find(i => i.id === 'wedding_pkg_3');
+
+      const el1 = document.getElementById('price_wedding_pkg_1');
+      const el2 = document.getElementById('price_wedding_pkg_2');
+      const el3 = document.getElementById('price_wedding_pkg_3');
+
+      if (pkg1 && el1 && pkg1.price6 > 0) el1.textContent = `$${pkg1.price6}`;
+      if (pkg2 && el2 && pkg2.price6 > 0) el2.textContent = `$${pkg2.price6}`;
+      if (pkg3 && el3 && pkg3.price6 > 0) el3.textContent = `$${pkg3.price6}`;
+    }
+
+    function addWeddingPackageToTicket(id, fallbackName, optionLabel, fallbackPrice) {
+      const found = TREATS_MENU_DATA.find(i => i.id === id);
+      const name = found ? found.name : fallbackName;
+      const price = found && found.price6 > 0 ? found.price6 : fallbackPrice;
+      addItemToActiveTicket(id, name, optionLabel, price);
+    }
+
     function loadMenuFromGoogleSheet() {
       const statusLabel = document.getElementById('cmsStatusLabel');
       const syncDot = document.getElementById('syncDot');
@@ -1798,18 +1808,13 @@
       if (syncIcon) syncIcon.classList.add('fa-spin');
       if (statusLabel) statusLabel.textContent = 'Syncing...';
 
-      // Clear any pending timeout
       if (gSheetLoadTimeout) clearTimeout(gSheetLoadTimeout);
 
-      // Timeout fallback if network fails
       gSheetLoadTimeout = setTimeout(() => {
-        if (TREATS_MENU_DATA === DEFAULT_TREATS_MENU) {
-          useFallback();
-          if (syncIcon) syncIcon.classList.remove('fa-spin');
-        }
+        useFallback();
+        if (syncIcon) syncIcon.classList.remove('fa-spin');
       }, 6000);
 
-      // Define global JSONP callback
       window.__handleSheetData = function(gvizData) {
         if (gSheetLoadTimeout) clearTimeout(gSheetLoadTimeout);
         if (syncIcon) syncIcon.classList.remove('fa-spin');
@@ -1861,8 +1866,14 @@
                 };
               });
 
+              // Save to localStorage for instant offline access
+              try {
+                localStorage.setItem('bb_menu_cache', JSON.stringify(TREATS_MENU_DATA));
+              } catch (e) {}
+
               if (statusLabel) statusLabel.textContent = `Sheet Live (${TREATS_MENU_DATA.length})`;
               if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse';
+              syncWeddingCardPrices();
               renderCategoryTabs();
               renderMenuItems(currentActiveCategory);
               populateQuickAddDropdown();
@@ -1876,7 +1887,6 @@
         useFallback();
       };
 
-      // Create JSONP script tag (bypasses browser CORS completely)
       const scriptId = 'google_sheet_jsonp_script';
       const existingScript = document.getElementById(scriptId);
       if (existingScript) existingScript.remove();
@@ -1885,7 +1895,7 @@
       script.id = scriptId;
       script.src = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=responseHandler:window.__handleSheetData&sheet=${encodeURIComponent(GOOGLE_SHEET_TAB_NAME)}&_t=${Date.now()}`;
       script.onerror = function() {
-        console.warn('JSONP script load error, falling back to cached menu.');
+        console.warn('JSONP script load error, using local fallback.');
         useFallback();
         if (syncIcon) syncIcon.classList.remove('fa-spin');
       };
@@ -1893,11 +1903,12 @@
     }
 
     function useFallback() {
-      TREATS_MENU_DATA = [...DEFAULT_TREATS_MENU];
+      TREATS_MENU_DATA = getStoredMenuData();
       const statusLabel = document.getElementById('cmsStatusLabel');
       const syncDot = document.getElementById('syncDot');
-      if (statusLabel) statusLabel.textContent = 'Sheet Cached';
-      if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-amber-500';
+      if (statusLabel) statusLabel.textContent = `Menu Ready (${TREATS_MENU_DATA.length})`;
+      if (syncDot) syncDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
+      syncWeddingCardPrices();
       renderCategoryTabs();
       renderMenuItems(currentActiveCategory);
       populateQuickAddDropdown();
@@ -2372,7 +2383,6 @@
 
     async function loadTikTokThumbnails() {
       for (const item of CLIENT_TIKTOK_VIDEOS) {
-        // Skip photo posts (such as 3-tier wedding cake) which already have their default local images
         if (item.url.includes('/photo/')) continue;
 
         try {
@@ -2386,9 +2396,7 @@
               if (imgEl) imgEl.src = data.thumbnail_url;
             }
           }
-        } catch (err) {
-          // Fallback image remains active
-        }
+        } catch (err) {}
       }
     }
 
@@ -2424,9 +2432,13 @@
     // 10. INITIALIZATION
     // -------------------------------------------------------------
     window.addEventListener('DOMContentLoaded', () => {
-      loadMenuFromGoogleSheet();
+      syncWeddingCardPrices();
+      renderCategoryTabs();
+      renderMenuItems(currentActiveCategory);
+      populateQuickAddDropdown();
       renderActiveTicketUI();
       loadTikTokThumbnails();
+      loadMenuFromGoogleSheet();
     });
   </script>
 </body>
