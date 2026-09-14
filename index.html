@@ -1181,57 +1181,60 @@
                   <input type="text" name="pickup_time" id="custPickupTime" placeholder="e.g. 11:30 AM (or note later time)" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm">
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-cocoa-900 mb-1">Occasion / Event Type</label>
-                  <select name="occasion_type" id="custEvent" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm bg-white">
-                    <option value="Wedding / Bridal Shower">Wedding / Bridal Shower 💍</option>
-                    <option value="Birthday Party Pack">Birthday Party Pack 🎉</option>
-                    <option value="Custom Cake / Bento">Custom Cake / Bento 🎂</option>
-                    <option value="Kids Cake Decorating Party">Kids Cake Decorating Party (Mobile) 🎨</option>
-                    <option value="Baby Shower / Gender Reveal">Baby Shower / Gender Reveal 🍼</option>
-                    <option value="Holiday / Gourmet Treats">Holiday / Gourmet Treats 🍓</option>
+                  <label class="block text-xs font-bold text-cocoa-900 mb-1">Occasion / Event Type *</label>
+                  <select name="event_type" id="custEvent" required class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] focus:ring-2 focus:ring-[#E4D5F6] outline-none text-sm bg-white">
+                    <option value="Birthday Party">Birthday Party</option>
+                    <option value="Wedding / Reception">Wedding / Reception</option>
+                    <option value="Baby Shower / Gender Reveal">Baby Shower / Gender Reveal</option>
+                    <option value="Graduation / Milestone">Graduation / Milestone</option>
+                    <option value="Kids Decorating Party">Kids Decorating Party</option>
+                    <option value="Corporate / Work Function">Corporate / Work Function</option>
+                    <option value="Just Because / Treats">Just Because / Treats</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            <!-- Step 2: Streamlined Order Ticket Builder -->
+            <!-- Step 2: Selected Order Items & Quick Add -->
             <div class="pt-6">
               <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#F3EDFB]">
                 <div class="flex items-center gap-2">
                   <span class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white font-black text-xs flex items-center justify-center">2</span>
                   <h3 class="font-serif text-lg font-bold text-cocoa-950">Your Selected Order Items</h3>
                 </div>
-                <span class="text-xs text-[#7D4FA8] font-bold" id="itemCountLabel">0 items selected</span>
+                <span class="text-xs text-[#7D4FA8] font-bold" id="itemCountLabel">0 items in quote</span>
               </div>
 
-              <!-- Active Item Cards Container -->
-              <div id="activeTicketItemsContainer" class="space-y-2.5">
-                <!-- Dynamically rendered active items -->
+              <!-- List of items added to ticket with +/- controls -->
+              <div id="activeTicketItemsContainer" class="space-y-3 mb-4">
+                <!-- Dynamically rendered via renderActiveTicketUI() -->
               </div>
 
-              <!-- Quick Add From Dropdown -->
-              <div class="mt-4 p-4 rounded-2xl bg-[#FAF7FD] border border-[#CFB5ED] flex flex-col sm:flex-row items-center gap-3">
-                <div class="w-full sm:w-2/3">
-                  <label class="block text-[11px] font-bold text-cocoa-950 uppercase tracking-wider mb-1">Add Another Treat or Package:</label>
-                  <select id="quickItemSelector" class="w-full px-3 py-2 text-xs rounded-xl border border-[#CFB5ED] bg-white outline-none focus:border-[#7D4FA8]">
+              <!-- Quick Add Dropdown Selector -->
+              <div class="p-4 rounded-2xl bg-[#FAF7FD] border border-[#CFB5ED] space-y-2">
+                <label class="block text-xs font-bold text-cocoa-900">
+                  <i class="fa-solid fa-plus-circle text-[#7D4FA8] mr-1"></i> Add Another Treat or Package:
+                </label>
+                <div class="flex flex-col sm:flex-row gap-2">
+                  <select id="quickItemSelector" class="flex-1 px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-xs bg-white text-cocoa-900">
                     <option value="">-- Choose item from menu --</option>
                   </select>
+                  <button type="button" onclick="handleAddFromDropdown()" class="px-5 py-2.5 rounded-xl bg-[#7D4FA8] hover:bg-[#643A89] text-white text-xs font-bold transition-colors shadow-xs flex items-center justify-center gap-1.5 shrink-0">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Add Item</span>
+                  </button>
                 </div>
-                <button type="button" onclick="handleAddFromDropdown()" class="w-full sm:w-1/3 mt-auto py-2.5 px-4 rounded-xl bg-cocoa-950 hover:bg-[#7D4FA8] text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
-                  <i class="fa-solid fa-plus text-[10px]"></i>
-                  <span>Add To Quote</span>
-                </button>
               </div>
             </div>
 
-            <!-- Step 3: Flavors, Fillings & Theme Customization -->
+            <!-- Step 3: Flavors, Fillings & Personalization -->
             <div class="pt-6">
               <div class="flex items-center gap-2 pb-3 mb-4 border-b border-[#F3EDFB]">
                 <span class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white font-black text-xs flex items-center justify-center">3</span>
                 <h3 class="font-serif text-lg font-bold text-cocoa-950">Flavors, Fillings & Personalization</h3>
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
                 <div>
                   <label class="block text-xs font-bold text-cocoa-900 mb-1">Cake Flavor (If ordering cake/cupcakes)</label>
                   <select name="cake_flavor" id="cakeFlavorSelect" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-xs bg-white">
@@ -1261,49 +1264,93 @@
                   <input type="text" name="theme_colors" id="custTheme" placeholder="e.g. Lavender, Sage Green, and Gold Butterfly accents" class="w-full px-4 py-2.5 rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none text-sm">
                 </div>
               </div>
+            </div>
 
-              <!-- Add-Ons Checkboxes -->
-              <div class="space-y-3 pt-2">
+            <!-- Step 4: Optional Add-Ons & Event Upgrades -->
+            <div class="pt-6">
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#F3EDFB]">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#7D4FA8] text-white font-black text-xs flex items-center justify-center">4</span>
+                  <h3 class="font-serif text-lg font-bold text-cocoa-950">Add-Ons & Extras</h3>
+                </div>
+                <span class="text-xs text-[#7D4FA8] font-bold">Select any upgrades</span>
+              </div>
+
+              <!-- Add-Ons Checkboxes Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 
-                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
                   <input type="checkbox" name="addon_setup_check" id="addon_setup" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
                   <div class="text-xs">
-                    <span class="font-bold text-cocoa-950">Wedding / Event On-Site Delivery & Setup (+ $50.00)</span>
-                    <p class="text-cocoa-800/80">We deliver directly to your venue, professionally unpack, and arrange your table.</p>
+                    <span class="font-bold text-cocoa-950 block">On-Site Delivery & Setup (+ $50)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Venue delivery, unpack & arrange dessert table.</p>
                   </div>
                 </label>
 
-                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
                   <input type="checkbox" name="addon_stands_check" id="addon_stands" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
                   <div class="text-xs">
-                    <span class="font-bold text-cocoa-950">Display Stands & Risers Rental (+ $75.00)</span>
-                    <p class="text-cocoa-800/80">Bakery provides matching tiered cake pedestals, dessert risers, and decorative platters.</p>
+                    <span class="font-bold text-cocoa-950 block">Display Stands Rental (+ $75)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Matching cake pedestals, dessert risers & platters.</p>
                   </div>
                 </label>
 
-                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
-                  <input type="checkbox" name="addon_wording_check" id="addon_wording" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
+                  <input type="checkbox" name="addon_edible_image_check" id="addon_edible_image" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
                   <div class="text-xs">
-                    <span class="font-bold text-cocoa-950">Custom Treat Chocolate Lettering (+ $5.00)</span>
-                    <p class="text-cocoa-800/80">Personalized molded chocolate alphabet blocks (e.g., "BABY BOY", "SWEET 16", initials).</p>
+                    <span class="font-bold text-cocoa-950 block">Edible Image Print (+ $18)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">High-res edible sugar sheet print (photo/character).</p>
                   </div>
                 </label>
 
-                <div id="wording_input_container" class="hidden pl-7">
-                  <input type="text" name="addon_wording_text" id="custWordingText" placeholder="Specify exact letters/text (e.g. BABY BOY)" class="w-full px-3 py-2 text-xs rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none">
-                </div>
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
+                  <input type="checkbox" name="addon_cake_topper_check" id="addon_cake_topper" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                  <div class="text-xs">
+                    <span class="font-bold text-cocoa-950 block">Custom Cake Topper (+ $25)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Personalized acrylic/cardstock name & theme topper.</p>
+                  </div>
+                </label>
 
-                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer">
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
+                  <input type="checkbox" name="addon_drip_check" id="addon_drip" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                  <div class="text-xs">
+                    <span class="font-bold text-cocoa-950 block">Cake Drip Finish (+ $2)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Cascading chocolate, caramel or tinted colored drip.</p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
                   <input type="checkbox" name="addon_cereal_check" id="addon_cereal" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
                   <div class="text-xs">
-                    <span class="font-bold text-cocoa-950">Specialty Crunch / Cereal Crumbles (+ $6.00 per dozen)</span>
-                    <p class="text-cocoa-800/80">Strawberry Shortcake Crunch, Oreo Crumble, or Fruity Pebbles.</p>
+                    <span class="font-bold text-cocoa-950 block">Specialty Crunch / Crumbles (+ $6)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Strawberry crunch, Oreo, or Fruity Pebbles.</p>
                   </div>
                 </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
+                  <input type="checkbox" name="addon_cheesecake_treat_check" id="addon_cheesecake_treat" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                  <div class="text-xs">
+                    <span class="font-bold text-cocoa-950 block">Cheesecake Treat Dip (+ $9)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Upgrade treats with cheesecake dip & graham crust.</p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 rounded-2xl border border-[#CFB5ED] hover:bg-[#FAF7FD] cursor-pointer transition-colors">
+                  <input type="checkbox" name="addon_wording_check" id="addon_wording" onchange="updateLiveEstimate()" class="mt-1 rounded text-[#7D4FA8] focus:ring-[#9E72C3]">
+                  <div class="text-xs">
+                    <span class="font-bold text-cocoa-950 block">Custom Treat Lettering (+ $5)</span>
+                    <p class="text-cocoa-800/80 text-[11px]">Molded chocolate letters (e.g. BABY BOY, name).</p>
+                  </div>
+                </label>
+
+              </div>
+
+              <div id="wording_input_container" class="hidden mt-3">
+                <input type="text" name="addon_wording_text" id="custWordingText" placeholder="Specify exact letters/text (e.g. BABY BOY, HAPPY BIRTHDAY)" class="w-full px-4 py-2 text-xs rounded-xl border border-[#CFB5ED] focus:border-[#7D4FA8] outline-none">
               </div>
 
               <!-- Notes & Inspiration Photo Link -->
-              <div class="mt-4 space-y-2">
+              <div class="mt-5 space-y-2">
                 <label class="block text-xs font-bold text-cocoa-900">
                   Inspiration Photos & Special Instructions:
                 </label>
@@ -2082,6 +2129,9 @@
       selector.innerHTML = '<option value="">-- Choose item from menu --</option>';
 
       TREATS_MENU_DATA.forEach(item => {
+        // Exclude add-ons and extras so the dropdown is strictly for main treats, cakes, and party packs
+        if (item.category === 'Add-Ons & Extras') return;
+
         const opt1 = document.createElement('option');
         opt1.value = JSON.stringify({ id: item.id, name: item.name, optionLabel: item.unit6, price: item.price6 });
         opt1.textContent = `${item.name} (${item.unit6}) — $${item.price6}`;
@@ -2242,6 +2292,45 @@
         breakdownText.push('Display Stands Rental (+$75)');
       }
 
+      // Add-on Edible Image
+      const addonEdible = document.getElementById('addon_edible_image');
+      if (addonEdible && addonEdible.checked) {
+        subtotal += 18;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span>🖼️ Edible Image Sugar Sheet</span>
+            <span class="font-bold text-[#CFB5ED]">+$18.00</span>
+          </div>
+        `;
+        breakdownText.push('Edible Image Print (+$18)');
+      }
+
+      // Add-on Custom Cake Topper
+      const addonTopper = document.getElementById('addon_cake_topper');
+      if (addonTopper && addonTopper.checked) {
+        subtotal += 25;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span>👑 Custom Theme Cake Topper</span>
+            <span class="font-bold text-[#CFB5ED]">+$25.00</span>
+          </div>
+        `;
+        breakdownText.push('Custom Cake Topper (+$25)');
+      }
+
+      // Add-on Cake Drip
+      const addonDrip = document.getElementById('addon_drip');
+      if (addonDrip && addonDrip.checked) {
+        subtotal += 2;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span>🍫 Cake Drip Finish</span>
+            <span class="font-bold text-[#CFB5ED]">+$2.00</span>
+          </div>
+        `;
+        breakdownText.push('Cake Drip Finish (+$2)');
+      }
+
       // Add-on Wording
       const addonWording = document.getElementById('addon_wording');
       const wordingInputContainer = document.getElementById('wording_input_container');
@@ -2270,6 +2359,19 @@
           </div>
         `;
         breakdownText.push('Specialty Crunch Toppings (+$6)');
+      }
+
+      // Add-on Cheesecake Treat Coating
+      const addonCheesecake = document.getElementById('addon_cheesecake_treat');
+      if (addonCheesecake && addonCheesecake.checked) {
+        subtotal += 9;
+        summaryHtml += `
+          <div class="flex justify-between items-center text-white/95">
+            <span>🍰 Cheesecake Treat Coating</span>
+            <span class="font-bold text-[#CFB5ED]">+$9.00</span>
+          </div>
+        `;
+        breakdownText.push('Cheesecake Treat Dip (+$9)');
       }
 
       if (summaryHtml === '') {
@@ -2407,12 +2509,13 @@
       const content = button.nextElementSibling;
       const icon = button.querySelector('i');
       const isOpen = !content.classList.contains('hidden');
+      
       if (isOpen) {
         content.classList.add('hidden');
-        icon.classList.remove('rotate-180');
+        if (icon) icon.classList.remove('rotate-180');
       } else {
-        content.classList.add('hidden');
-        icon.classList.remove('rotate-180');
+        content.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
       }
     }
 
